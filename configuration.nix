@@ -95,6 +95,7 @@
       vscodium
       copyq
       xclip
+      gnome.gnome-keyring
     ];
   };
 

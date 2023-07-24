@@ -25,7 +25,7 @@ My simple setup for nixos from the ground up.
 - killall
 - wget
 - curl
-- 
+- gnome-keyring
 
 ## Terminal apps
 
