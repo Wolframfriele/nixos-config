@@ -36,6 +36,7 @@ My simple setup for nixos from the ground up.
 - btop
 - fzf
 - tree
+- w3m
 
 ## Applications
 
