@@ -48,7 +48,8 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
-
+  
+  # Enable Hyprland tiling window manager
   programs.hyprland.enable = true;
 
   # Configure keymap in X11
@@ -105,6 +106,10 @@
       wlogout
       swaylock-effects
       brightnessctl
+      unzip
+      playerctl
+      libsecret
+      gnome.gnome-keyring
     ];
   };
 
@@ -125,7 +130,7 @@
   # Fonts
   fonts.fonts = with pkgs; [
     font-awesome
-    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" "Iosevka" ]; })
+    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
