@@ -43,11 +43,16 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
+  };
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
+   # services.xserver.desktopManager.gnome.enable = true;
   
   # Enable Hyprland tiling window manager
   programs.hyprland.enable = true;
@@ -59,7 +64,11 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # services.printing.enable = true;
+
+# Enable qmk
+
+  hardware.keyboard.qmk.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -112,6 +121,8 @@
       gnome.gnome-keyring
     ];
   };
+
+
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
