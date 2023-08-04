@@ -30,10 +30,20 @@
       # };   
     };
   outputs = { self, nixpkgs }: {
-    # replace 'joes-desktop' with your hostname here.
-    nixosConfigurations.wolf = nixpkgs.lib.nixosSystem {
+    let
+      user = "wolf";
+      hostname = "laptop";
       system = "x86_64-linux";
-      modules = [ ./configuration.nix ];
-    };
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      lib = nixpkgs.lib;
+    in {
+      nixosConfigurations = {
+        
+      }
+    }
+    
   };
 }
