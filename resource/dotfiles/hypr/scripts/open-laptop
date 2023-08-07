@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# turn on laptop display
+hyprctl keyword monitor "eDP-1,1920x1080@60,3840x1080,1"
+
+# restart waybar
+killall .waybar-wrapped
+waybar

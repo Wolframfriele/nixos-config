@@ -1,49 +1,37 @@
 #
-#  NixOS config for my systems, mostly stolen from https://github.com/MatthiasBenaets/nixos-config
-#  Check https://www.youtube.com/watch?v=AGVXJ-TIv3Y for a great mini course.
-#
 #  flake.nix *             
 #   └─ ./hosts
 #       └─ default.nix
 #
 
 {
-  description = "My Personal NixOS Flake Configuration";
+  description = "";
 
-  inputs =                                                                  # All flake references used to build my NixOS setup. These are dependencies.
-    {
-      nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";         # Unstable Nix Packages
+  inputs = {
+    # Nixpkgs
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-      # home-manager = {                                                      # User Package Management
-      #   url = "github:nix-community/home-manager/release-23.05";
-      #   inputs.nixpkgs.follows = "nixpkgs";
-      # };
+    # Home manager
+    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-      # nixgl = {                                                             # OpenGL
-      #   url = "github:guibou/nixGL";
-      #   inputs.nixpkgs.follows = "nixpkgs";
-      # };
+    # TODO: Add any other flake you might need
+    # hardware.url = "github:nixos/nixos-hardware";
 
-      # hyprland = {                                                          # Official Hyprland flake
-      #   url = "github:vaxerski/Hyprland";                                   # Add "hyprland.nixosModules.default" to the host modules
-      #   inputs.nixpkgs.follows = "nixpkgs";
-      # };   
-    };
-  outputs = { self, nixpkgs }: {
-    let
-      user = "wolf";
-      hostname = "laptop";
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
+    # Shameless plug: looking for a way to nixify your themes and make
+    # everything match nicely? Try nix-colors!
+    # nix-colors.url = "github:misterio77/nix-colors";
+  };
+
+  outputs = { nixpkgs, home-manager, ... }@inputs: {
+    # NixOS configuration entrypoint
+    # Available through 'nixos-rebuild --flake .#your-hostname'
+    nixosConfigurations = {
+      laptop = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+        # > Our main nixos configuration file <
+        modules = [ ./nixos/configuration.nix ];
       };
-      lib = nixpkgs.lib;
-    in {
-      nixosConfigurations = {
-        
-      }
-    }
-    
+    };
   };
 }
