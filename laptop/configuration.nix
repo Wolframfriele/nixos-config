@@ -111,7 +111,7 @@
   #     your-username = import ./home.nix;
   #   };
   # };
-  service.xserver = {
+  services.xserver = {
     enable = true;
     desktopManager = {
       xterm.enable = false;
