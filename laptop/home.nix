@@ -41,6 +41,8 @@
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
     firefox
+    thunar
+    waybar
   ];
 
   programs.neovim.enable = true;
@@ -50,7 +52,7 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git.enable = true;
+  # programs.git.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

@@ -53,6 +53,7 @@
 # Configure for comfort
 - Determine best way to handle workspaces on multimonitor
 - Two finger click is right click
+- Pop up message when battery low
 
 # Learn
 - Search project for word in neovim

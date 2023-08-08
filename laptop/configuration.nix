@@ -85,16 +85,15 @@
 
   services.xserver = {
     enable = true;
-    desktopManager = {
-      xterm.enable = false;
-      xfce.enable = true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
     };
-    displayManager.defaultSession = "xfce";
   };
 
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
   fonts.fonts = with pkgs; [
