@@ -104,13 +104,13 @@
   ];
 
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      # Import your home-manager configuration
-      your-username = import ./home.nix;
-    };
-  };
+  # home-manager = {
+  #   extraSpecialArgs = { inherit inputs; };
+  #   users = {
+  #     # Import your home-manager configuration
+  #     your-username = import ./home.nix;
+  #   };
+  # };
 
   services.xserver.desktopManager.xfce.enable = true;
   # This setups a SSH server. Very important if you're setting up a headless system.
