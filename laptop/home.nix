@@ -8,30 +8,8 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
+    ./desktop-environment
   ];
-
-  # nixpkgs = {
-  #   # You can add overlays here
-  #   overlays = [
-  #     # If you want to use overlays exported from other flakes:
-  #     # neovim-nightly-overlay.overlays.default
-  #
-  #     # Or define it inline, for example:
-  #     # (final: prev: {
-  #     #   hi = final.hello.overrideAttrs (oldAttrs: {
-  #     #     patches = [ ./change-hello-to-hi.patch ];
-  #     #   });
-  #     # })
-  #   ];
-  #   # Configure your nixpkgs instance
-  #   config = {
-  #     # Disable if you don't want unfree packages
-  #     allowUnfree = true;
-  #     # Workaround for https://github.com/nix-community/home-manager/issues/2942
-  #     allowUnfreePredicate = (_: true);
-  #   };
-  # };
 
   home = {
     username = "wolf";
@@ -41,15 +19,37 @@
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
     firefox
-    thunar
+    xfce.thunar
     waybar
   ];
 
   programs.neovim.enable = true;
-  programs.kitty.enable = true;
+  programs.kitty = {
+    enable = true;
+    font = {
+      name = "JetBrainsMono Nerd Font";
+      size = 13      
+    };
 
-  # home.packages = with pkgs; [ steam ];
+    settings =
+      {
+        scrollback_lines = 10000;
+        enable_audio_bell = false;
+        tab_bar_edge = "top";     # tab bar on top
+        confirm_os_window_close = false;
+      }
+  };
 
+  services = {                            # Applets
+    blueman-applet.enable = true;         # Bluetooth
+    network-manager-applet.enable = true; # Network
+    cbatticon = {
+      enable = true;
+      criticalLevelPercent = 10;
+      lowLevelPercent = 20;
+      iconType = null;
+    };
+  };
   # Enable home-manager and git
   programs.home-manager.enable = true;
   # programs.git.enable = true;

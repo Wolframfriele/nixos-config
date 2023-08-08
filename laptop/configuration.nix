@@ -65,6 +65,22 @@
     LC_TIME = "nl_NL.UTF-8";
   };
 
+  # Enable sound with pipewire.
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
+  };
 
   users.users = {
     wolf = {
@@ -91,15 +107,14 @@
     };
   };
 
-  programs.hyprland = {
-    enable = true;
-    # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  };
-
-  fonts.fonts = with pkgs; [
-    font-awesome
-    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+  fonts.fontconfig.enable = true;
+  home.packages = [
+    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
   ];
+  # fonts.fonts = with pkgs; [
+  #   font-awesome
+  #   (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+  # ];
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
