@@ -15,7 +15,7 @@
     ./hardware-configuration.nix
 
     # Import home-manager's NixOS module
-    inputs.home-manager.nixosModules.home-manager
+    # inputs.home-manager.nixosModules.home-manager 
   ];
 
   nixpkgs = {
