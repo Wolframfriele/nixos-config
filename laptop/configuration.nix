@@ -93,9 +93,6 @@
       # ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = [ "networkmanager" "wheel" ];
-      packages = with pkgs; [
-       firefox
-      ];
     };
   };
 
@@ -111,7 +108,7 @@
     extraSpecialArgs = { inherit inputs; };
     users = {
       # Import your home-manager configuration
-      your-username = import ../home-manager;
+      your-username = import ./home.nix;
     };
   };
 
