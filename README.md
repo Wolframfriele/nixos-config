@@ -47,6 +47,13 @@ My simple setup for nixos from the ground up.
 - Docker
 - Celium
 
-# Programming languages
+## Programming languages
 - rust
 - python
+- Go
+- C#
+- C
+
+## Interesting articles
+
+https://www.maxwellrules.com/misc/nvim_jupyter.html using jupyter notebooks in neovim

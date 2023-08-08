@@ -9,14 +9,18 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, hyprland, ... }: {
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           ./laptop/configuration.nix
           home-manager.nixosModules.home-manager
@@ -28,8 +32,10 @@
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
           }
+          hyprland.homeManagerModules.default
+          {wayland.windowManager.hyprland.enable = true;}
         ];
       };
     };
   };
-}
+

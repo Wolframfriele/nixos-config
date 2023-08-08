@@ -38,24 +38,6 @@
     };
   };
 
-  # nix = {
-  #   # This will add each flake input as a registry
-  #   # To make nix3 commands consistent with your flake
-  #   registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
-  #
-  #   # This will additionally add your inputs to the system's legacy channels
-  #   # Making legacy nix commands consistent as well, awesome!
-  #   nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
-  #
-  #   settings = {
-  #     # Enable flakes and new 'nix' command
-  #     experimental-features = "nix-command flakes";
-  #     # Deduplicate and optimize nix store
-  #     auto-optimise-store = true;
-  #   };
-  # };
-
-  # FIXME: Add the rest of your current configuration
 
   networking.hostName = "laptop";
   networking.networkmanager.enable = true;
@@ -84,14 +66,12 @@
   };
 
 
-  # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
     wolf = {
       isNormalUser = true;
       # openssh.authorizedKeys.keys = [
-      #   # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
+      #   Add your SSH public key(s) here, if you plan on using SSH to connect
       # ];
-      # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = [ "networkmanager" "wheel" ];
     };
   };
@@ -103,14 +83,6 @@
     curl
   ];
 
-
-  # home-manager = {
-  #   extraSpecialArgs = { inherit inputs; };
-  #   users = {
-  #     # Import your home-manager configuration
-  #     your-username = import ./home.nix;
-  #   };
-  # };
   services.xserver = {
     enable = true;
     desktopManager = {
@@ -119,6 +91,17 @@
     };
     displayManager.defaultSession = "xfce";
   };
+
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  };
+
+  fonts.fonts = with pkgs; [
+    font-awesome
+    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+  ];
+
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
   # services.openssh = {
