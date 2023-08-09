@@ -1,6 +1,5 @@
 {pkgs, hyprland, ...}: {
   imports = [
-    # hyprland.homeManagerModules.default
     ./hyprland.nix
     # ./waybar.nix
     # ./anyrun.nix
