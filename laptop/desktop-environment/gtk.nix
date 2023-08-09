@@ -3,7 +3,7 @@
     enable = true;
     font.name = "TeX Gyre Adventor 10";
     theme = {
-      name = "Adwaita";
+      name = "Adwaita-Dark";
       # package = pkgs.juno-theme;
     };
 
