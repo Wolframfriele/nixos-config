@@ -2,8 +2,8 @@
   imports = [
     # hyprland.homeManagerModules.default
     ./hyprland.nix
-    ./waybar.nix
-    ./anyrun.nix
+    # ./waybar.nix
+    # ./anyrun.nix
     # ./wayland-apps.nix
   ];
 
@@ -21,7 +21,8 @@
     # slurp 
     # inputs.hyprland-contrib.packages.x86_64-linux.grimblast 
   ];
-
+  # wayland.windowManager.hyprland.enable = true;
   # allow fontconfig to discover fonts and configurations installed through home.packages
-  fonts.fontconfig.enable = true;
+  # fonts.fontconfig.enable = true;
+ 
 }

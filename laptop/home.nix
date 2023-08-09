@@ -20,7 +20,7 @@
   home.packages = with pkgs; [
     firefox
     xfce.thunar
-    waybar
+    # waybar
   ];
 
   programs.neovim.enable = true;
@@ -28,7 +28,7 @@
     enable = true;
     font = {
       name = "JetBrainsMono Nerd Font";
-      size = 13      
+      size = 13;      
     };
 
     settings =
@@ -36,26 +36,26 @@
         scrollback_lines = 10000;
         enable_audio_bell = false;
         tab_bar_edge = "top";     # tab bar on top
-        confirm_os_window_close = false;
-      }
+        confirm_os_window_close = 0;
+      };
   };
 
-  services = {                            # Applets
-    blueman-applet.enable = true;         # Bluetooth
-    network-manager-applet.enable = true; # Network
-    cbatticon = {
-      enable = true;
-      criticalLevelPercent = 10;
-      lowLevelPercent = 20;
-      iconType = null;
-    };
-  };
+  # services = {                            # Applets
+  #   blueman-applet.enable = true;         # Bluetooth
+  #   network-manager-applet.enable = true; # Network
+  #   cbatticon = {
+  #     enable = true;
+  #     criticalLevelPercent = 10;
+  #     lowLevelPercent = 20;
+  #     iconType = null;
+  #   };
+  # };
   # Enable home-manager and git
   programs.home-manager.enable = true;
   # programs.git.enable = true;
 
   # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
+  # systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";

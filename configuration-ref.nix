@@ -109,7 +109,6 @@
       vscodium
       copyq
       xclip
-      gnome.gnome-keyring
       pavucontrol
       bluez
       bluez-tools

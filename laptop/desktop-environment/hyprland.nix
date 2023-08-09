@@ -1,5 +1,8 @@
-{pkgs, hyprland, ...}: {
-  
+{pkgs, ...}: {
+  # imports = [
+    # hyprland.homeManagerModules.default
+  # ];
+
   # home.packages = with pkgs; [
   #   wl-clipboard
   #   networkmanagerapplet
@@ -24,8 +27,8 @@
       # exec-once = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 # used for user sudo graphical elevation
 
       # exec-once = blueman-applet # Systray app for BT
-      exec-once = nm-applet --indicator # Systray app for Network/Wifi
-      exec-once = waybar
+      # exec-once = nm-applet --indicator # Systray app for Network/Wifi
+      # exec-once = waybar
 
       # exec = ~/.config/hypr/scripts/bgaction # Sets the background based on theme
 
