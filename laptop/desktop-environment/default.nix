@@ -1,6 +1,7 @@
 {pkgs, hyprland, ...}: {
   imports = [
     ./hyprland.nix
+    ./gtk.nix
     # ./waybar.nix
     # ./anyrun.nix
     # ./wayland-apps.nix
