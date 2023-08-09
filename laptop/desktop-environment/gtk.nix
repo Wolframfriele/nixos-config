@@ -3,8 +3,8 @@
     enable = true;
     font.name = "TeX Gyre Adventor 10";
     theme = {
-      name = "Juno";
-      package = pkgs.juno-theme;
+      name = "Adwaita";
+      # package = pkgs.juno-theme;
     };
 
     iconTheme = {
