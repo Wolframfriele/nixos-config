@@ -17,10 +17,12 @@
   };
 
   # Add stuff for your user as you see fit:
+  fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
+    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+
     firefox
     xfce.thunar
-    # waybar
   ];
 
   programs.neovim.enable = true;

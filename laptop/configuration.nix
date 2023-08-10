@@ -101,15 +101,11 @@
   };
   
   # programs.hyprland.enable = true;
-  # fonts.fontconfig.enable = true;
-  # home.packages = [
-  #   (pkgs.nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+    
+  # fonts.fonts = with pkgs; [
+  #   font-awesome
+  #   (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
   # ];
-  
-  fonts.fonts = with pkgs; [
-    font-awesome
-    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
-  ];
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
@@ -121,6 +117,30 @@
   #   passwordAuthentication = false;
   # };
 
+  nix = {                                   # Nix Package Manager settings
+    settings ={
+      auto-optimise-store = true;           # Optimise syslinks
+    };
+    gc = {                                  # Automatic garbage collection
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 2d";
+    };
+    package = pkgs.nixVersions.unstable;    # Enable nixFlakes on system
+    registry.nixpkgs.flake = inputs.nixpkgs;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+      keep-outputs          = true
+      keep-derivations      = true
+    '';
+  };
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "23.05";
+  system = {                                # NixOS settings
+    autoUpgrade = {                         # Allow auto update (not useful in flakes)
+      enable = true;
+      channel = "https://nixos.org/channels/nixos-unstable";
+    };
+    stateVersion = "22.05";
+  };
 }
