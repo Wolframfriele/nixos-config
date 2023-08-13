@@ -57,3 +57,10 @@ My simple setup for nixos from the ground up.
 ## Interesting articles
 
 https://www.maxwellrules.com/misc/nvim_jupyter.html using jupyter notebooks in neovim
+
+## Workspace idea's
+
+- Workspace 1: Communication and music (Dashboard like) [Discord, Teams, Spotify, Signal]
+- Workspace 2: Main Work
+- Workspace 3: Chill / Personal
+- Workspace 4: Overflow

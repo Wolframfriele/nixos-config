@@ -75,6 +75,9 @@
     # media-session.enable = true;
   };
 
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   users.users = {
     wolf = {
       isNormalUser = true;
@@ -137,10 +140,10 @@
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system = {                                # NixOS settings
-    autoUpgrade = {                         # Allow auto update (not useful in flakes)
-      enable = true;
-      channel = "https://nixos.org/channels/nixos-unstable";
-    };
-    stateVersion = "22.05";
+    # autoUpgrade = {                         # Allow auto update (not useful in flakes)
+    #   enable = true;
+    #   channel = "https://nixos.org/channels/nixos-unstable";
+    # };
+    stateVersion = "23.05";
   };
 }

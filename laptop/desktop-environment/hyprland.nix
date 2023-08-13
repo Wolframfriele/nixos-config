@@ -27,8 +27,8 @@
       # exec-once = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 # used for user sudo graphical elevation
 
       # exec-once = blueman-applet # Systray app for BT
-      # exec-once = nm-applet --indicator # Systray app for Network/Wifi
-      # exec-once = waybar
+      exec-once = nm-applet --indicator # Systray app for Network/Wifi
+      exec-once = waybar
 
       # exec = ~/.config/hypr/scripts/bgaction # Sets the background based on theme
 
@@ -73,7 +73,7 @@
           # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
           rounding = 2
-          blur = yes
+          blur = no
           blur_size = 7
           blur_passes = 1
           blur_new_optimizations = on
@@ -126,15 +126,18 @@
       # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
       # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
       # rules below would make the specific app transparent
-      windowrulev2 = opacity 0.9 0.8,class:^(kitty)$
+      windowrulev2 = opacity 1 1,class:^(kitty)$
       windowrulev2 = animation popin,class:^(kitty)$,title:^(update-sys)$
       windowrulev2 = animation popin,class:^(thunar)$
-      windowrulev2 = opacity 0.9 0.8,class:^(thunar)$
-      windowrulev2 = opacity 0.9 0.8,class:^(VSCodium)$
+      windowrulev2 = opacity 1 1,class:^(thunar)$
+      windowrulev2 = opacity 1 1,class:^(VSCodium)$
       windowrulev2 = animation popin,class:^(chromium)$
       windowrulev2 = animation slide,class:^(wofi)$
       windowrulev2 = move 100%-433 53,class:^(wofi)$,title:^(clippick)$
 
+      # workspace rules
+      workspace = 4, monitor:eDP-1, default:true
+      workspace = 5, monitor:DP-2, default:true
 
       # See https://wiki.hyprland.org/Configuring/Keywords/ for more
       $mainMod = SUPER
@@ -160,10 +163,14 @@
       binde=, XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-
       bind =, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
       bind =, XF86AudioPlay, exec, playerctl play-pause
-      bind = , XF86AudioNext, exec, playerctl next
-      bind = , XF86AudioPrev, exec, playerctl previous
-      bind = , XF86audiostop, exec, playerctl stop
+      bind =, XF86AudioNext, exec, playerctl next
+      bind =, XF86AudioPrev, exec, playerctl previous
+      bind =, XF86audiostop, exec, playerctl stop
 
+      # Bind Brightness keys
+      binde=, XF86MonBrightnessDown, exec, brightnessctl set 5%-
+      binde=, XF86MonBrightnessUp, exec, brightnessctl set +5%
+      
       # Move focus with mainMod + arrow keys
       bind = $mainMod, A, layoutmsg, swapwithmaster master
       bind = $mainMod, left, movefocus, l
