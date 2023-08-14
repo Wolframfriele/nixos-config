@@ -52,7 +52,7 @@
  
 # Configure for comfort
 - [ ] Determine best way to handle workspaces on multimonitor
-- [ ] Two finger click is right click
+- [X] Two finger click is right click
 - [ ] Pop up message when battery low
 - [ ] Fix font awesomme display in firefox (if possible)
 - [ ] Mouse changes when hovering something clickable
