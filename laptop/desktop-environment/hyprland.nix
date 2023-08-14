@@ -49,6 +49,7 @@
           touchpad {
               natural_scroll = yes
               tap-to-click = no
+              clickfinger_behavior = 1
           }
 
           sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
