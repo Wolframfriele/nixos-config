@@ -4,23 +4,22 @@
 - [X] Nerd fonts
 - [X] Display manager [gdm, sddm, lightdm, ly or tuigreet]
 - [X] Window Manager [Hyprland]
-- [ ] Automatic Garbage collection nix store
-- [ ] status bar [waybar, later maybe ewww]
+- [X] status bar [waybar, later maybe ewww]
+- [ ] Screenlock + Turn off display after time: swayidle + Swaylock-effect
 - [ ] App Launcher [Anyrun or Fuzzel]
+- [ ] wlogout
 - [ ] Notifications [Mako]
 - [ ] Wallpaper: None?
-- [ ] Lockscreen: Swaylock sway-idle
+- [ ] Automatic Garbage collection nix store
 - [ ] Audio: controls and playing music
-- [ ] Get bluetooth working
-- [ ] Screenlock + Turn off display after time
+- [X] Get bluetooth working
 - [ ] Closing laptop lid disables screen 1 if more than 1 display's are present
 - [ ] Screenshots
-- [ ] Control screen brightness with hotkeys
-- [ ] Thunar for file management
+- [X] Control screen brightness with hotkeys
+- [X] Thunar for file management
 - [ ] root elevation handling
-- [ ] wlogout
 - [ ] Standardised Theming
-- [ ] Dark theme GTK apps
+- [X] Dark theme GTK apps
 - [ ] Check if webcam and Screensharing work
 
 # Applications
@@ -56,6 +55,7 @@
 - [ ] Two finger click is right click
 - [ ] Pop up message when battery low
 - [ ] Fix font awesomme display in firefox (if possible)
+- [ ] Mouse changes when hovering something clickable
 
 # Learn
 - [ ] Search project for word in neovim

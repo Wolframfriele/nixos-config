@@ -6,6 +6,7 @@
     brightnessctl
     btop
     blueman
+    libnotify
   ];
 
   # services.playerctld.enable = true;
@@ -97,9 +98,11 @@
         };
 
         temperature = {
+          interval = 10;
+          thermal-zone = 7;
           format = "{icon} {temperatureC}°C";
           format-icons = [ "" "" "" "󰈸" ];
-          critical-threshold = 70;
+          critical-threshold = 80;
           format-critical = " {temperatureC}°C";
         };
 

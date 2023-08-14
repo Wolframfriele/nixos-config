@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+
+  {pkgs, ...}: {
   # imports = [
     # hyprland.homeManagerModules.default
   # ];
@@ -12,6 +13,7 @@
   #   # inputs.hyprland-contrib.packages.x86_64-linux.grimblast 
   # ];
 
+  
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = ''
@@ -26,9 +28,11 @@
       # exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # More wayland magic (screen sharing etc.)
       # exec-once = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 # used for user sudo graphical elevation
 
-      # exec-once = blueman-applet # Systray app for BT
+      exec-once = blueman-applet # Systray app for BT
       exec-once = nm-applet --indicator # Systray app for Network/Wifi
       exec-once = waybar
+
+      exec-once = swayidle -w timeout 30 "hyprctl dispatch dpms"
 
       # exec = ~/.config/hypr/scripts/bgaction # Sets the background based on theme
 
@@ -207,9 +211,9 @@
       bindm = $mainMod, mouse:273, resizewindow
 
       # trigger when the switch is turning off                     
-      bindl = , switch:off:Lid Switch,exec, ~/.config/hypr/scripts/open-laptop
+      # bindl = , switch:off:Lid Switch,exec, ~/.config/hypr/scripts/open-laptop
       # trigger when the switch is turning on
-      bindl = , switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
+      # bindl = , switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
 ''
 
     ;
