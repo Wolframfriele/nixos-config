@@ -1,11 +1,11 @@
-{pkgs, hyprland, ...}: {
+{pkgs, ...}: {
   imports = [
     ./hyprland.nix
     ./gtk.nix
     ./waybar.nix
     ./gtk.nix
     ./mako.nix
-    #./anyrun.nix
+    ./anyrun.nix
   ];
 
   home.packages = with pkgs; [
@@ -13,6 +13,7 @@
     networkmanagerapplet
     pavucontrol
     swayidle
+    playerctl
   ];
   # music player - mpd
   # home.file.".config/mpd" = {

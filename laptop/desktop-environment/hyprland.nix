@@ -1,8 +1,8 @@
 
   {pkgs, ...}: {
-  # imports = [
-    # hyprland.homeManagerModules.default
-  # ];
+  imports = [
+    hyprland.homeManagerModules.default
+  ];
 
   # home.packages = with pkgs; [
   #   wl-clipboard
@@ -13,7 +13,10 @@
   #   # inputs.hyprland-contrib.packages.x86_64-linux.grimblast 
   # ];
 
-  
+  hyprland.nixosModules.default {
+    programs.hyprland.enable = true;
+  }
+
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = ''

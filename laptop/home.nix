@@ -10,6 +10,7 @@
     # You can also split up your configuration and import pieces of it here:
     ./desktop-environment
     ./development
+    # inputs.anyrun.homeManagerModules.default
   ];
 
   home = {

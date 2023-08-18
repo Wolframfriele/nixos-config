@@ -5,8 +5,8 @@
 - [X] Display manager [gdm, sddm, lightdm, ly or tuigreet]
 - [X] Window Manager [Hyprland]
 - [X] status bar [waybar, later maybe ewww]
-- [ ] Screenlock + Turn off display after time: swayidle + Swaylock-effect
 - [ ] App Launcher [Anyrun or Fuzzel]
+- [ ] Turn off screen after 45 seconds, Lock screen after 2 minutes, Sleep after 8 minutes. Playing youtube does not count as idle.
 - [ ] wlogout
 - [ ] Notifications [Mako]
 - [ ] Wallpaper: None?
@@ -17,10 +17,9 @@
 - [ ] Screenshots
 - [X] Control screen brightness with hotkeys
 - [X] Thunar for file management
-- [ ] root elevation handling
 - [ ] Standardised Theming
 - [X] Dark theme GTK apps
-- [ ] Check if webcam and Screensharing work
+- [ ] Screensharing in discord and Teams
 
 # Applications
 - [ ] Neovim with nvchad
