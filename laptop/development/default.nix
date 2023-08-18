@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./kitty.nix
     ./python.nix
   ];
   

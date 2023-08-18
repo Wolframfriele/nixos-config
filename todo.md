@@ -5,29 +5,35 @@
 - [X] Display manager [gdm, sddm, lightdm, ly or tuigreet]
 - [X] Window Manager [Hyprland]
 - [X] status bar [waybar, later maybe ewww]
-- [ ] App Launcher [Anyrun or Fuzzel]
+- [X] App Launcher [Anyrun or Fuzzel]
+    - [ ] Add file search (kidex)
+    - [X] Add web search
+- [X] Screenshots
 - [ ] Turn off screen after 45 seconds, Lock screen after 2 minutes, Sleep after 8 minutes. Playing youtube does not count as idle.
-- [ ] wlogout
-- [ ] Notifications [Mako]
+- [X] wlogout
+- [X] Notifications [Mako]
 - [ ] Wallpaper: None?
 - [ ] Automatic Garbage collection nix store
-- [ ] Audio: controls and playing music
+- [X] Audio: controls and playing music
 - [X] Get bluetooth working
 - [ ] Closing laptop lid disables screen 1 if more than 1 display's are present
-- [ ] Screenshots
 - [X] Control screen brightness with hotkeys
 - [X] Thunar for file management
-- [ ] Standardised Theming
+- [ ] Standardised Theming colors
 - [X] Dark theme GTK apps
 - [ ] Screensharing in discord and Teams
+- [ ] Image viewer
+    - [ ] Thumbnails
+    - [ ] Preview with spacebar
 
 # Applications
 - [ ] Neovim with nvchad
     - [ ] Oxocarbon
 - [ ] Kitty with Oxocarbon theme: set ctrl + bckspace to delete word
-- [ ] LS
-- [ ] btop
+- [ ] LF
+- [X] btop
 - [ ] Signal (or combined messaging app)
+- [ ] Obsidian with dropbox
 
 
 # Dev environment

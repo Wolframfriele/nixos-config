@@ -1,21 +1,17 @@
 
-  {pkgs, ...}: {
+  {pkgs, hyprland, ...}: {
   imports = [
     hyprland.homeManagerModules.default
   ];
 
-  # home.packages = with pkgs; [
-  #   wl-clipboard
-  #   networkmanagerapplet
-  #   pavucontrol
-  #   # grim 
-  #   # slurp 
-  #   # inputs.hyprland-contrib.packages.x86_64-linux.grimblast 
-  # ];
-
-  hyprland.nixosModules.default {
-    programs.hyprland.enable = true;
-  }
+  home.packages = with pkgs; [
+    wl-clipboard
+    # networkmanagerapplet
+    pavucontrol
+    grim 
+    slurp 
+    # inputs.hyprland-contrib.packages.x86_64-linux.grimblast 
+  ];
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -35,7 +31,8 @@
       exec-once = nm-applet --indicator # Systray app for Network/Wifi
       exec-once = waybar
 
-      exec-once = swayidle -w timeout 30 "hyprctl dispatch dpms"
+      exec-once = swayidle 
+      #-w timeout 30 "hyprctl dispatch dpms"
 
       # exec = ~/.config/hypr/scripts/bgaction # Sets the background based on theme
 
@@ -156,15 +153,15 @@
       bind = $mainMod, M, exec, wlogout --protocol layer-shell # show the logout window
       bind = $mainMod SHIFT, M, exit, # Exit Hyprland all together no (force quit Hyprland)
 
-      bind = $mainMod, E, exec, fuzzel # Show the graphical app launcher
+      bind = $mainMod, E, exec, anyrun # Show the graphical app launcher
       bind = $mainMod, T, exec, kitty  # open the terminal
       bind = $mainMod, F, exec, firefox # Execute firefox
       bind = $mainMod, B, exec, thunar # Show the graphical file browser
 
       bind = $mainMod, V, togglefloating, # Allow a window to float
-      bind = $mainMod, P, pseudo, # dwindle
-      bind = $mainMod, J, togglesplit, # dwindle
-      bind = $mainMod, S, exec, grim -g "$(slurp)" - | swappy -f - # take a screenshot
+      # bind = $mainMod, P, pseudo, # dwindle
+      # bind = $mainMod, J, togglesplit, # dwindle
+      bind = $mainMod, S, exec, grim -g "$(slurp)"# - | swappy -f - # take a screenshot
 
       # Bind Audio keys
       binde=, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
