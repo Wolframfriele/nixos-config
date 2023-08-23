@@ -39,6 +39,7 @@
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "ntfs" ];
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
@@ -75,8 +76,16 @@
     # media-session.enable = true;
   };
 
+  # Bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+
+  # Auto mount hardrives
+  services.devmon.enable = true;
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+
+  security.pam.services.greetd.enableGnomeKeyring = true; 
 
   users.users = {
     wolf = {
@@ -91,25 +100,45 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    git
+    # git
     curl
   ];
 
-  services.xserver = {
+  # services.xserver = {
+  #   enable = true;
+  #   displayManager.gdm = {
+  #     enable = true;
+  #     wayland = true;
+  #   };
+  #   # displayManager.sddm.enable = true;
+  # };
+
+  services.greetd = {
     enable = true;
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
+    settings = rec {
+      initial_session = {
+        command = "${pkgs.hyprland}/bin/hyprland";
+        user = "wolf";
+      };
+      default_session = initial_session;
     };
   };
-  
-  # programs.hyprland.enable = true;
-    
-  # fonts.fonts = with pkgs; [
-  #   font-awesome
-  #   (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
-  # ];
 
+  # greetd = {
+  #   enable = true;
+  #   restart = false;
+  #   settings = {
+  #     default_session = {
+  #       command = ''
+  #         ${
+  #           lib.makeBinPath [ pkgs.greetd.tuigreet ]
+  #         }/tuigreet -r --asterisks --time \
+  #           --cmd ${runner}
+  #       '';
+  #     };
+  #   };
+  # };
+  
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
   # services.openssh = {
@@ -119,6 +148,16 @@
   #   # Use keys only. Remove if you want to SSH using password (not recommended)
   #   passwordAuthentication = false;
   # };
+
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+      ];
+    };
+  };
 
   nix = {                                   # Nix Package Manager settings
     settings ={

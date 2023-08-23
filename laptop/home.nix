@@ -27,8 +27,26 @@
     xfce.thunar
   ];
 
-  programs.neovim.enable = true;
-  
+  programs.git = {
+    # Install git
+    enable = true;
+    
+    # Additional options for the git program
+    # package = pkgs.gitAndTools.gitFull; # Install git wiith all the optional extras
+    userName = "Wolfram Friele";
+    userEmail = "wolframfriele@gmail.com";
+    extraConfig = {
+      # Use vim as our default git editor
+      # core.editor = "vim";
+      # Cache git credentials for 15 minutes
+      credential.helper = "cache";
+    };
+  };
+
+  programs.neovim = {
+    enable = true;
+    vimAlias = true;
+  };  
   # services = {                            # Applets
   #   blueman-applet.enable = true;         # Bluetooth
   #   network-manager-applet.enable = true; # Network
@@ -41,7 +59,6 @@
   # };
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  # programs.git.enable = true;
 
   # Nicely reload system units when changing configs
   # systemd.user.startServices = "sd-switch";

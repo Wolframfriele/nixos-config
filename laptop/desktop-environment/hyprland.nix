@@ -1,8 +1,8 @@
 
   {pkgs, hyprland, ...}: {
-  imports = [
-    hyprland.homeManagerModules.default
-  ];
+  # imports = [
+  #   hyprland.homeManagerModules.default
+  # ];
 
   home.packages = with pkgs; [
     wl-clipboard
@@ -15,6 +15,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    recommendedEnvironment = true;
     extraConfig = ''
       # Setup monitors
       #monitor=,preferred,auto,auto
@@ -38,84 +39,84 @@
 
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
       input {
-          kb_layout = us
-          kb_variant =
-          kb_model =
-          kb_options =
-          kb_rules =
+        kb_layout = us
+        kb_variant =
+        kb_model =
+        kb_options =
+        kb_rules =
 
-          follow_mouse = 1
+        follow_mouse = 1
 
-          touchpad {
-              natural_scroll = yes
-              tap-to-click = no
-              clickfinger_behavior = 1
-          }
+        touchpad {
+            natural_scroll = yes
+            tap-to-click = no
+            clickfinger_behavior = 1
+        }
 
-          sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+        sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
       }
 
       general {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
+        # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
-          gaps_in = 4
-          gaps_out = 8
-          border_size = 1
-          col.active_border=rgb(cdd6f4)
-          col.inactive_border = rgba(595959aa)
+        gaps_in = 4
+        gaps_out = 8
+        border_size = 1
+        col.active_border=rgb(cdd6f4)
+        col.inactive_border = rgba(595959aa)
 
-          layout = master
+        layout = master
       }
 
       misc {
-          disable_hyprland_logo = yes
+        disable_hyprland_logo = yes
 
-          mouse_move_enables_dpms = true
-          key_press_enables_dpms = true
+        mouse_move_enables_dpms = true
+        key_press_enables_dpms = true
       }
 
       decoration {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
+        # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
-          rounding = 2
-          blur = no
-          blur_size = 7
-          blur_passes = 1
-          blur_new_optimizations = on
-          blur_xray = true
+        rounding = 2
 
-          blurls = lockscreen
+        blur = {
+          # enabled = false
+          # blur_size = 7
+          # blur_passes = 1
+          # blur_new_optimizations = on
+          # blur_xray = true
+        }
+        
+        # blurls = lockscreen
 
-          drop_shadow = false
-          shadow_range = 4
-          shadow_render_power = 3
-          col.shadow = rgba(1a1a1aee)
+        drop_shadow = false
       }
 
       animations {
-          enabled = yes
+        enabled = yes
 
-          # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
+        # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
 
-          bezier = myBezier, 0.2, 0.8, 0.2, 1.
+        bezier = myBezier, 0.2, 0.8, 0.2, 1.
 
-          animation = windows, 1, 2, myBezier,
-          animation = windowsOut, 1, 2, default, popin 80%
-          animation = border, 1, 5, default
-          animation = borderangle, 1, 8, default
-          animation = fade, 1, 7, default
-          animation = workspaces, 1, 2, myBezier, slidevert
+        animation = windows, 1, 2, myBezier,
+        animation = windowsOut, 1, 2, default, popin 80%
+        animation = border, 1, 5, default
+        animation = borderangle, 1, 8, default
+        animation = fade, 1, 7, default
+        animation = workspaces, 1, 2, myBezier, slidevert
       }
 
       master {
-          # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-          new_is_master = false
-          orientation = right
+        # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
+        new_is_master = false
+        orientation = right
       }
 
       gestures {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
-          workspace_swipe = off
+        # See https://wiki.hyprland.org/Configuring/Variables/ for more
+        workspace_swipe = off
       }
 
       # windowrule v1
@@ -214,10 +215,7 @@
       # trigger when the switch is turning off                     
       # bindl = , switch:off:Lid Switch,exec, ~/.config/hypr/scripts/open-laptop
       # trigger when the switch is turning on
-      # bindl = , switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
-''
-
-    ;
+      # bindl = , switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"'';
   };
 
   systemd.user.sessionVariables = {

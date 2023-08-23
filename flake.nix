@@ -36,6 +36,9 @@
             home-manager.extraSpecialArgs = { inherit anyrun hyprland; };
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
+            modules = [
+              hyprland.homeManagerModules.default
+            ];
           }
         ];
       };
