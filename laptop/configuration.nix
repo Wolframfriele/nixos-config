@@ -93,7 +93,7 @@
       # openssh.authorizedKeys.keys = [
       #   Add your SSH public key(s) here, if you plan on using SSH to connect
       # ];
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "docker" ];
     };
   };
 
@@ -104,25 +104,24 @@
     curl
   ];
 
-  # services.xserver = {
-  #   enable = true;
-  #   displayManager.gdm = {
-  #     enable = true;
-  #     wayland = true;
-  #   };
-  #   # displayManager.sddm.enable = true;
-  # };
-
-  services.greetd = {
+  services.xserver = {
     enable = true;
-    settings = rec {
-      initial_session = {
-        command = "${pkgs.hyprland}/bin/hyprland";
-        user = "wolf";
-      };
-      default_session = initial_session;
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
     };
   };
+
+  # services.greetd = {
+  #   enable = true;
+  #   settings = rec {
+  #     initial_session = {
+  #       command = "${pkgs.hyprland}/bin/hyprland";
+  #       user = "wolf";
+  #     };
+  #     default_session = initial_session;
+  #   };
+  # };
 
   # greetd = {
   #   enable = true;
@@ -176,6 +175,8 @@
       keep-derivations      = true
     '';
   };
+
+  virtualisation.docker.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system = {                                # NixOS settings

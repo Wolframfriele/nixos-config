@@ -27,7 +27,9 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./laptop/configuration.nix
-          
+          hyprland.nixosModules.default {
+            programs.hyprland.enable = true;
+          }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -36,9 +38,6 @@
             home-manager.extraSpecialArgs = { inherit anyrun hyprland; };
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
-            modules = [
-              hyprland.homeManagerModules.default
-            ];
           }
         ];
       };

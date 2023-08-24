@@ -5,8 +5,8 @@
 - [X] Window Manager [Hyprland]
 - [X] status bar [waybar, later maybe ewww]
 - [X] App Launcher [Anyrun or Fuzzel]
-    - [ ] Add file search (kidex)
     - [X] Add web search
+    - [ ] Add file search (kidex)
 - [X] Screenshots
 - [X] wlogout
 - [X] Notifications [Mako]
@@ -36,10 +36,10 @@
 
 # Dev environment
 - [X] Git
+- [X] VSCode (for working with Notebooks)
+- [X] Python (3.11) 
 - [ ] Starship
 - [ ] Docker
-- [X] VSCode (for working with Notebooks)
-- [X] Python (3.11)
 - [ ] Javascript
 - [ ] Rust
 - [ ] Golang
@@ -48,14 +48,14 @@
 - [ ] ? Ocaml
 - [ ] Kubectl
 - [ ] Lapce
-- [ ] Ripgrep
-- [ ] fzf
-- [ ] tree
+- [X] Ripgrep
+- [X] fzf
+- [X] tree
 - [ ] ? w3m
  
 # Configure for comfort
-- [ ] Determine best way to handle workspaces on multimonitor
 - [X] Two finger click is right click
+- [ ] Determine best way to handle workspaces on multimonitor
 - [ ] Pop up message when battery low
 - [ ] Fix font awesomme display in firefox (if possible)
 - [ ] Mouse changes when hovering something clickable

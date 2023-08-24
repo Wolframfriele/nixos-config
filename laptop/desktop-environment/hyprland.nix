@@ -15,7 +15,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    recommendedEnvironment = true;
+    # recommendedEnvironment = true;
     extraConfig = ''
       # Setup monitors
       #monitor=,preferred,auto,auto

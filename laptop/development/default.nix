@@ -7,5 +7,8 @@
   
   home.packages = with pkgs; [
     vscode
+    ripgrep
+    fzf
+    tree
   ];
 }
