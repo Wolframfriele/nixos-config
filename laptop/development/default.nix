@@ -3,6 +3,7 @@
     ./kitty.nix
     ./python.nix
     ./lf.nix
+    ./starship.nix
   ];
   
   home.packages = with pkgs; [

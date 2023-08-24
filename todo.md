@@ -39,7 +39,7 @@
 - [X] VSCode (for working with Notebooks)
 - [X] Python (3.11) 
 - [ ] Starship
-- [ ] Docker
+- [X] Docker
 - [ ] Javascript
 - [ ] Rust
 - [ ] Golang
