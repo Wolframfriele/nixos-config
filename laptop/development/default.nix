@@ -1,9 +1,10 @@
 {pkgs, ...}: {
   imports = [
     ./kitty.nix
-    ./python.nix
     ./lf.nix
     ./starship.nix
+    ./python.nix
+    ./rust.nix
   ];
   
   home.packages = with pkgs; [

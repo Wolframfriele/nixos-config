@@ -9,7 +9,7 @@
     # networkmanagerapplet
     pavucontrol
     grim 
-    slurp 
+    slurp
     # inputs.hyprland-contrib.packages.x86_64-linux.grimblast 
   ];
 
@@ -23,9 +23,9 @@
       monitor=DP-2,3840x2160@60,0x0,1
 
       # Execute your favorite apps at launch
-      # exec-once = ~/.config/hypr/scripts/xdg-portal-hyprland # Make sure the correct portal is running
-      # exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # Wayland magic (screen sharing etc.)
-      # exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # More wayland magic (screen sharing etc.)
+      exec-once = ~/.config/hypr/scripts/xdg-portal-hyprland # Make sure the correct portal is running
+      exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # Wayland magic (screen sharing etc.)
+      exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # More wayland magic (screen sharing etc.)
       # exec-once = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 # used for user sudo graphical elevation
 
       exec-once = blueman-applet # Systray app for BT
