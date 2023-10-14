@@ -10,6 +10,7 @@
     # You can also split up your configuration and import pieces of it here:
     ./desktop-environment
     ./development
+    ./creative
     # inputs.anyrun.homeManagerModules.default
   ];
 
@@ -24,9 +25,12 @@
     (pkgs.nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
 
     firefox
-    xfce.thunar
+    # xfce.thunar
+
+    obsidian
   ];
 
+    
   programs.git = {
     # Install git
     enable = true;
@@ -46,7 +50,9 @@
   programs.neovim = {
     enable = true;
     vimAlias = true;
-  };  
+  };
+  
+
   # services = {                            # Applets
   #   blueman-applet.enable = true;         # Bluetooth
   #   network-manager-applet.enable = true; # Network

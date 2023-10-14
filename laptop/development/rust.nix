@@ -1,6 +1,6 @@
 { pkgs, ... }:{
 
   home.packages = [
-    rustup 
+    pkgs.rustup 
   ];
 }

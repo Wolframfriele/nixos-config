@@ -39,7 +39,7 @@
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = [ "ntfs" "exfat" ];
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
@@ -102,7 +102,16 @@
     wget
     # git
     curl
+    unzip
+    gnome.file-roller
   ];
+
+  programs.thunar.enable = true;
+  programs.thunar.plugins = with pkgs.xfce; [
+
+    thunar-archive-plugin
+  ];
+
 
   services.xserver = {
     enable = true;
