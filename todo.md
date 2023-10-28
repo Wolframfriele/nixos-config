@@ -15,9 +15,10 @@
 - [X] Control screen brightness with hotkeys
 - [X] Thunar for file management
 - [X] Dark theme GTK apps
+- [ ] Mouse Acceleration off, and lower sensitivity
 - [ ] Image viewer
-    - [ ] Thumbnails
-    - [ ] Preview with spacebar
+- [ ] Thumbnails
+- [ ] Preview with spacebar
 - [ ] Closing laptop lid disables screen 1 if more than 1 display's are present
 - [ ] Turn off screen after 45 seconds, Lock screen after 2 minutes, Sleep after 8 minutes. Playing youtube does not count as idle.
 - [ ] greetd with tuigreet

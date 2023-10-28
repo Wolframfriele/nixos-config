@@ -54,6 +54,7 @@
         }
 
         sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+        accel_profile = flat
       }
 
       general {
