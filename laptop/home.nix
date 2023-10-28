@@ -25,8 +25,6 @@
     (pkgs.nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
 
     firefox
-    # xfce.thunar
-
     obsidian
   ];
 

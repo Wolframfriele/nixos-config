@@ -15,7 +15,7 @@
 - [X] Control screen brightness with hotkeys
 - [X] Thunar for file management
 - [X] Dark theme GTK apps
-- [ ] Mouse Acceleration off, and lower sensitivity
+- [X] Mouse Acceleration off, and lower sensitivity
 - [ ] Image viewer
 - [ ] Thumbnails
 - [ ] Preview with spacebar

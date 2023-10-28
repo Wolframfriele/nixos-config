@@ -100,18 +100,9 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    # git
     curl
     unzip
-    gnome.file-roller
   ];
-
-  programs.thunar.enable = true;
-  programs.thunar.plugins = with pkgs.xfce; [
-
-    thunar-archive-plugin
-  ];
-
 
   services.xserver = {
     enable = true;

@@ -4,6 +4,7 @@
     ./gtk.nix
     ./waybar.nix
     ./gtk.nix
+    ./file-browsing.nix
     ./mako.nix
     ./anyrun.nix
   ];
