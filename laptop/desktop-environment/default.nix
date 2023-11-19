@@ -4,9 +4,9 @@
     ./gtk.nix
     ./waybar.nix
     ./gtk.nix
-    ./file-browsing.nix
     ./mako.nix
     ./anyrun.nix
+    ./file-browsing.nix
   ];
 
   home.packages = with pkgs; [

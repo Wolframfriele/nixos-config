@@ -5,6 +5,7 @@
     ./starship.nix
     ./python.nix
     ./rust.nix
+    ./neovim.nix
   ];
   
   home.packages = with pkgs; [
