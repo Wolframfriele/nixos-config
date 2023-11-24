@@ -2,6 +2,12 @@
 My simple setup for nixos from the ground up.
 
 
+Build the laptop with:
+
+```
+sudo nixos-rebuild switch --flake .#laptop
+```
+
 ## Desktop environment
 
 - Display Manager: gdm
