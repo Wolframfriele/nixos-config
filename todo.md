@@ -33,11 +33,10 @@
     - [X] Telescope
     - [X] Treesitter
     - [ ] LSP
-        - [ ] Python
-            - [ ] Pyright (or pylyzer)
-            - [ ] Mypy
-            - [ ] Ruff
-            - [ ] Black
+        - [X] Python
+            - [X] Pyright (or pylyzer)
+            - [X] Ruff
+            - [X] Black
         - [ ] Rust
             - [ ] rust-analyzer
             - [ ] rust-fmt

@@ -8,6 +8,17 @@ Build the laptop with:
 sudo nixos-rebuild switch --flake .#laptop
 ```
 
+Update all flake inputs with:
+
+```
+sudo nix flake update
+```
+
+Update certain inputs with:
+```
+sudo nix flake update nixpkgs
+```
+
 ## Desktop environment
 
 - Display Manager: gdm
