@@ -45,12 +45,6 @@
       }
 
       {
-        plugin = null-ls-nvim;
-        type = "lua";
-        config = builtins.readFile ./plugins/null-sl.lua;
-      }
-
-      {
         plugin = nvim-cmp;
         type = "lua";
         config = builtins.readFile ./plugins/cmp.lua;
@@ -101,7 +95,6 @@
         type = "lua";
         config = "require('Comment').setup()";
       }
-      (fromGitHub "HEAD" "nvimdev/guard.nvim")
     ];
 
     extraLuaConfig = builtins.readFile ./plugins/options.lua;
@@ -109,14 +102,13 @@
     extraPackages = with pkgs; [
       wl-clipboard
 
-      efm-langserver
+      # efm-langserver
 
       lua-language-server
       rnix-lsp
       pyright
       black
-      ruff
-      mypy
+      ruff-lsp
       fd
     ];
   };

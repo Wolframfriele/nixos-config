@@ -20,3 +20,10 @@ vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.softtabstop = 4
+
+local group = vim.api.nvim_create_augroup("Black", { clear = true })
+vim.api.nvim_create_autocmd("bufWritePost", {
+	pattern = "*.py",
+	command = "silent !black %",
+	group = group,
+})

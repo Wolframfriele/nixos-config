@@ -28,6 +28,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 require('neodev').setup()
+require("lsp-format").setup {}
 require'lspconfig'.lua_ls.setup {
     on_init = function(client)
       local path = client.workspace_folders[1].name
@@ -67,4 +68,9 @@ require('lspconfig').rnix.setup {
 require('lspconfig').pyright.setup {
     on_attach = on_attach,
     capabilities = capabilities,
+ }
+
+require('lspconfig').ruff_lsp.setup {
+  on_attach = require("lsp-format").on_attach,
+  capabilities = capabilities,
 }

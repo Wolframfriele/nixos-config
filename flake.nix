@@ -18,7 +18,6 @@
       url = "github:Kirottu/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    plugin-guard.url = "github:nvimdev/guard.nvim";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, hyprland, anyrun, ... }: {
