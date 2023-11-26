@@ -24,11 +24,34 @@
 - [ ] greetd with tuigreet
 - [ ] Screensharing in discord and Teams
 - [ ] Automatic Garbage collection nix store
+- [ ] Fix waybar crashing when plugging in new screen
 
 # Applications
 - [X] btop
-- [ ] Neovim with nvchad
-    - [ ] Oxocarbon
+- [ ] Neovim
+    - [X] Oxocarbon
+    - [X] Telescope
+    - [X] Treesitter
+    - [ ] LSP
+        - [ ] Python
+            - [ ] Pyright (or pylyzer)
+            - [ ] Mypy
+            - [ ] Ruff
+            - [ ] Black
+        - [ ] Rust
+            - [ ] rust-analyzer
+            - [ ] rust-fmt
+    - [X] File Tree (nvim-tree)
+    - [X] Comment
+    - [ ] Whichkey
+    - [ ] Nvim-colorizer
+    - [X] indent blankline
+    - [X] nvim-autopairs
+    - [ ] guess-indent(maybe?)
+    - [ ] Switch between 2 spaces and 4 spaces
+        - [ ] Show tab setting in LuaLine
+    - [ ] Setup hotkeys
+
 - [ ] Kitty with Oxocarbon theme: set ctrl + bckspace to delete word
 - [ ] LF
 - [ ] Signal (or combined messaging app)
