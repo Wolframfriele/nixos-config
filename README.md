@@ -16,7 +16,7 @@ sudo nix flake update
 
 Update certain inputs with:
 ```
-sudo nix flake update nixpkgs
+sudo nix flake lock --update-input anyrun
 ```
 
 ## Desktop environment
