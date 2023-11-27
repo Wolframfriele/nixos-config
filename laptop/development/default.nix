@@ -5,6 +5,7 @@
     ./starship.nix
     ./python.nix
     ./rust.nix
+    ./go.nix
     ./neovim.nix
   ];
   
