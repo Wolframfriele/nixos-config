@@ -16,6 +16,10 @@
 - [X] Thunar for file management
 - [X] Dark theme GTK apps
 - [X] Mouse Acceleration off, and lower sensitivity
+- [ ] Figure out way to get waybar windows to go on top of other
+- [ ] Turn off laptop when 5% battery left
+- [ ] battery warning
+
 - [ ] Image viewer
 - [ ] Thumbnails
 - [ ] Preview with spacebar
@@ -37,6 +41,7 @@
             - [X] Pyright (or pylyzer)
             - [X] Ruff
             - [X] Black
+            - [ ] Format with ruff instead
         - [ ] Rust
             - [ ] rust-analyzer
             - [ ] rust-fmt
@@ -50,11 +55,19 @@
     - [ ] Switch between 2 spaces and 4 spaces
         - [ ] Show tab setting in LuaLine
     - [ ] Setup hotkeys
+    - [ ] Split window
+    - [ ] Maybe a build in terminal
+    - [ ] hot key to toggle relative line numbers
+    - [ ] Git diff support
 
 - [ ] Kitty with Oxocarbon theme: set ctrl + bckspace to delete word
 - [ ] LF
+- [ ] Setup LF hotkeys
+    - [ ] Hot key to open current folder from LF in terminal
+    - [ ] open current lf folder in vi
 - [ ] Signal (or combined messaging app)
 - [ ] Obsidian with dropbox
+- [ ] Youtube music command line player (ytui)
 
 
 # Dev environment

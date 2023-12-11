@@ -53,7 +53,7 @@ require'lspconfig'.lua_ls.setup {
             }
           }
         })
-  
+
         client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
       end
       return true
@@ -71,6 +71,30 @@ require('lspconfig').pyright.setup {
  }
 
 require('lspconfig').ruff_lsp.setup {
-  on_attach = require("lsp-format").on_attach,
-  capabilities = capabilities,
+    on_attach = require("lsp-format").on_attach,
+    capabilities = capabilities,
 }
+
+require('lspconfig').gopls.setup ({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        gopls = {
+            gofumpt = true
+        }
+    }
+})
+
+local group_black = vim.api.nvim_create_augroup("Black", { clear = true })
+vim.api.nvim_create_autocmd("bufWritePost", {
+	pattern = "*.py",
+	command = "silent !black %",
+	group = group_black,
+})
+
+local group_go = vim.api.nvim_create_augroup("gofumpt", { clear = true })
+vim.api.nvim_create_autocmd("bufWritePost", {
+	pattern = "*.go",
+	command = "silent !gofumpt -w %",
+	group = group_go,
+})

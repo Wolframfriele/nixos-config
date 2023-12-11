@@ -1,9 +1,15 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Copy and paste to clipboard
+vim.api.nvim_set_keymap("n", "<C-c>", '"+y$', {noremap=true, silent=true})
+vim.api.nvim_set_keymap("n", "<C-v>", '"+p$', {noremap=true, silent=true})
+
+-- Nvim Tree keybindings
 vim.keymap.set("n", "<Leader>tt", ":NvimTreeToggle<CR>", {})
 vim.keymap.set("n", "<Leader>tf", ":NvimTreeFocus<CR>", {})
 
+-- Telescope keybindings
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<Leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<Leader>fg", builtin.live_grep, {})
@@ -21,9 +27,4 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.softtabstop = 4
 
-local group = vim.api.nvim_create_augroup("Black", { clear = true })
-vim.api.nvim_create_autocmd("bufWritePost", {
-	pattern = "*.py",
-	command = "silent !black %",
-	group = group,
-})
+

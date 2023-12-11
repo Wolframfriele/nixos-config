@@ -75,7 +75,13 @@
       {
         plugin = nvim-tree-lua;
         type = "lua";
-        config = "require('nvim-tree').setup()";
+        config = "require('nvim-tree').setup({
+          actions = {
+            open_file = {
+              quit_on_open = true,
+            },
+          },
+        })";
       }
 
       {
@@ -110,6 +116,8 @@
       black
       ruff-lsp
       fd
+      gopls
+      gofumpt
     ];
   };
 } 
