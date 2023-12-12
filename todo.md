@@ -22,9 +22,9 @@
 - [X] Thunar for file management
 - [X] Dark theme GTK apps
 - [X] Mouse Acceleration off, and lower sensitivity
-- [ ] Figure out way to get waybar windows to go on top of other
-- [ ] Turn off laptop when 5% battery left
-- [ ] battery warning
+- [X] Figure out way to get waybar windows to go on top of other
+- [X] Turn off laptop when 5% battery left
+- [X] battery warning
 
 - [ ] Image viewer
 - [ ] Thumbnails

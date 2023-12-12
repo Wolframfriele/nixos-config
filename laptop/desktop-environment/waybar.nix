@@ -19,31 +19,11 @@
         margin = "0";
         layer = "top";
         position = "top";
-        mode = "dock";
         height = 42;
         spacing = 6;
-        modules-left = [ "custom/nix" "wlr/workspaces" "temperature" "cpu" "memory" "disk" ];
+        modules-left = [ "custom/nix" "temperature" "cpu" "memory" "disk" ];
         modules-center = [ "clock" ];
         modules-right = [ "pulseaudio" "backlight" "tray" "battery" "custom/powerbutton" ];
-
-        
-        "wlr/workspaces" = {
-          format = "{icon}";
-          on-click = "activate";
-          sort-by-number = true;
-          format-icons = {
-            "4" = " 󰭹 ";
-            "5" = "  ";
-            "6" = "  ";
-            "10" = "  ";
-          };
-          persistent_workspaces = {
-            "4" = [];
-            "5" = [];
-            "6" = [];
-            "10" = [];
-          };
-        };
 
         # mpris = {
         #   format = "{status_icon}<span weight='bold'>{artist}</span> | {title}";
@@ -106,11 +86,6 @@
           format-critical = " {temperatureC}°C";
         };
 
-        # backlight = {
-        #   format = "{icon} {percent}%";
-        #   format-icons = [ "󰃜" "󰃛" "󰃚 " ];
-        # };
-
         backlight = {
           # device = "intel_backlight";
           format = "{icon} {percent}%";
@@ -135,7 +110,6 @@
 
         clock = {
           format = "{:%H:%M}";
-          # format-alt = "󰃭  {:%Y-%m-%d}";
           tooltip = true;
           tooltip-format = "{:  %A, %Y-%m-%d, Week %U}";
         };
@@ -203,34 +177,6 @@
           color: #f2f4f8;
       }
 
-      #workspaces button {
-          padding: 5px;
-          color: #343434;
-          margin-right: 5px;
-      }
-
-      #workspaces button.active {
-          color: #5f5f5f;
-      }
-
-      #workspaces button.focused {
-          color: #5f5f5f;
-          background: #08bdba;
-          border-radius: 10px;
-      }
-
-      #workspaces button.urgent {
-          color: #161616;
-          background: #ee5396;
-          border-radius: 10px;
-      }
-
-      #workspaces button:hover {
-          background: #161616;
-          color: #f2f4f8;
-          border-radius: 10px;
-      }
-
       #custom-nix,
       #custom-lock_screen,
       #custom-light_dark,
@@ -256,6 +202,7 @@
           margin: 0px 0px;
           margin-top: 8px;
           border: 0px;
+          border-radius: 5px;
       }
 
       #tray,
@@ -264,7 +211,7 @@
       #backlight,
       #custom-launch_nix,
       #cpu {
-          border-radius: 5px 0px 0px 5px;
+          border-radius: 5px;
       }
 
       #custom-light_dark,
@@ -273,7 +220,7 @@
       #pulseaudio.microphone,
       #battery,
       #disk {
-          border-radius: 0px 5px 5px 0px;
+          border-radius: 5px;
           margin-right: 8px;
       }
 
@@ -281,6 +228,9 @@
           color: #ee5396;
       }
 
+      #battery.critical {
+          color: #ee5396;
+      }
 
       #workspaces {
           padding-right: 0px;
@@ -303,18 +253,21 @@
           color: #78a9ff;
           margin-left: 8px;
           border-right: 0px;
+          border-radius: 5px;
       }
 
       #pulseaudio {
           color: #f2f4f8;
           border-left: 0px;
           border-right: 0px;
+          border-radius: 5px;
       }
 
       #pulseaudio.microphone {
           color: #f2f4f8;
           border-left: 0px;
           border-right: 0px;
+          border-radius: 5px;
       }
 
       #battery {
@@ -324,19 +277,4 @@
 
     '';
   };
-
-  # xdg.configFile."waybar/scripts/dunst.sh" = {
-  #   text = ''
-  #   COUNT=$(dunstctl count waiting)
-  #   ENABLED="󰂚 "
-  #   DISABLED="󰂛 "
-  #   if [ $COUNT != 0 ]; then DISABLED="󱅫 "; fi
-  #   if dunstctl is-paused | grep -q "false"; then
-  #     echo $ENABLED
-  #   else
-  #     echo $DISABLED
-  #   fi
-  #   '';
-  #   executable = true;
-  # };
 }
