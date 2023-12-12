@@ -1,5 +1,11 @@
 # Getting the working system
 
+# After Update
+
+- Fix workspaces icons
+- Fix obsidian
+- Fix XDG portal
+
 # Setup a desktop environment
 - [X] Nerd fonts
 - [X] Window Manager [Hyprland]
@@ -59,6 +65,7 @@
     - [ ] Maybe a build in terminal
     - [ ] hot key to toggle relative line numbers
     - [ ] Git diff support
+    - [ ] Allow buffer to be centered
 
 - [ ] Kitty with Oxocarbon theme: set ctrl + bckspace to delete word
 - [ ] LF

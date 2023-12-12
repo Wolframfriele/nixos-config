@@ -10,6 +10,7 @@
     pavucontrol
     grim 
     slurp
+    batsignal
     # inputs.hyprland-contrib.packages.x86_64-linux.grimblast 
   ];
 
@@ -27,15 +28,13 @@
       exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # Wayland magic (screen sharing etc.)
       exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # More wayland magic (screen sharing etc.)
       # exec-once = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 # used for user sudo graphical elevation
-
+      
+      exec-once = batsignal -n BAT0 -w 30 -c 15 -d 10 -D 'systemctl suspend'
       exec-once = blueman-applet # Systray app for BT
       exec-once = nm-applet --indicator # Systray app for Network/Wifi
       exec-once = waybar
 
-      exec-once = swayidle 
-      #-w timeout 30 "hyprctl dispatch dpms"
-
-      # exec = ~/.config/hypr/scripts/bgaction # Sets the background based on theme
+      exec-once = swayidle -w timeout 120 "hyprctl dispatch dpms"
 
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
       input {
@@ -105,7 +104,7 @@
         animation = windowsOut, 1, 2, default, popin 80%
         animation = border, 1, 5, default
         animation = borderangle, 1, 8, default
-        animation = fade, 1, 7, default
+        animation = fade, 1, 3, default
         animation = workspaces, 1, 2, myBezier, slidevert
       }
 
