@@ -3,9 +3,6 @@
   # imports = [
   #   hyprland.homeManagerModules.default
   # ];
-  imports = [
-    ./laptop-lid.nix
-  ];
 
   home.packages = with pkgs; [
     wl-clipboard
@@ -15,11 +12,11 @@
     slurp
     batsignal
     # inputs.hyprland-contrib.packages.x86_64-linux.grimblast 
+    (import ./laptop-lid.nix { inherit pkgs; })
   ];
 
   wayland.windowManager.hyprland = {
     enable = true;
-    # recommendedEnvironment = true;
     extraConfig = ''
       # Setup monitors
       #monitor=,preferred,auto,auto
