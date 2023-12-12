@@ -3,6 +3,9 @@
   # imports = [
   #   hyprland.homeManagerModules.default
   # ];
+  imports = [
+    ./laptop-lid.nix
+  ];
 
   home.packages = with pkgs; [
     wl-clipboard
@@ -24,7 +27,7 @@
       monitor=DP-2,3840x2160@60,0x0,1
 
       # Execute your favorite apps at launch
-      exec-once = ~/.config/hypr/scripts/xdg-portal-hyprland # Make sure the correct portal is running
+      # exec-once = ~/.config/hypr/scripts/xdg-portal-hyprland # Make sure the correct portal is running
       exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # Wayland magic (screen sharing etc.)
       exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # More wayland magic (screen sharing etc.)
       # exec-once = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 # used for user sudo graphical elevation
@@ -32,7 +35,7 @@
       exec-once = batsignal -n BAT0 -w 30 -c 15 -d 10 -D 'systemctl suspend'
       exec-once = blueman-applet # Systray app for BT
       exec-once = nm-applet --indicator # Systray app for Network/Wifi
-      exec-once = waybar
+      exec-once = waybar & disown
 
       exec-once = swayidle -w timeout 120 "hyprctl dispatch dpms"
 
@@ -211,11 +214,15 @@
       # Move/resize windows with mainMod + LMB/RMB and dragging
       bindm = $mainMod, mouse:272, movewindow
       bindm = $mainMod, mouse:273, resizewindow
-
+      
+      # New attempt at switching of screen when closing lid
+      bindl = , switch:Lid Switch, exec, laptop-lid 
       # trigger when the switch is turning off                     
       # bindl = , switch:off:Lid Switch,exec, ~/.config/hypr/scripts/open-laptop
       # trigger when the switch is turning on
       # bindl = , switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"'';
+
+
   };
 
   systemd.user.sessionVariables = {

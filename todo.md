@@ -30,6 +30,8 @@
 - [ ] Thumbnails
 - [ ] Preview with spacebar
 - [ ] Closing laptop lid disables screen 1 if more than 1 display's are present
+    - [ ] Find way to add bash scripts to config
+        - [ ] look into writeShellScripts
 - [ ] Turn off screen after 45 seconds, Lock screen after 2 minutes, Sleep after 8 minutes. Playing youtube does not count as idle.
 - [ ] greetd with tuigreet
 - [ ] Screensharing in discord and Teams
