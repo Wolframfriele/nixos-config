@@ -99,7 +99,7 @@
           states = {
             good = 95;
             warning = 30;
-            critical = 20;
+            critical = 15;
           };
           format = "{icon} {capacity}%";
           format-charging = " {capacity}%";
@@ -228,9 +228,7 @@
           color: #ee5396;
       }
 
-      #battery.critical {
-          color: #ee5396;
-      }
+      
 
       #workspaces {
           padding-right: 0px;
@@ -275,6 +273,15 @@
           border-left: 0px;
       }
 
+      #battery.critical {
+          color: #ee5396;
+      }
+      
+      #battery.warning {
+        /* color: #F8BD96; */
+        color: #be95ff;
+
+      }
     '';
   };
 }

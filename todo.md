@@ -50,46 +50,53 @@
         - [X] Python
             - [X] Pyright (or pylyzer)
             - [X] Ruff
-            - [X] Black
             - [ ] Format with ruff instead
+            - [ ] remove mypy and change to pyright
+            - [ ] play with pylyzer
         - [ ] Rust
             - [ ] rust-analyzer
             - [ ] rust-fmt
+        - [ ] Spell Check
+        - [ ] Setup hotkey's to move through LSP
+        - [ ] Typescript
     - [X] File Tree (nvim-tree)
     - [X] Comment
-    - [ ] Whichkey
-    - [ ] Nvim-colorizer
     - [X] indent blankline
     - [X] nvim-autopairs
+    - [ ] Allow buffer to be centered
+    - [ ] Setup hotkey to copy out from neovim 
+    - [ ] Whichkey
+    - [ ] hot key to toggle relative line numbers
+    - [X] Nvim-colorizer
     - [ ] guess-indent(maybe?)
     - [ ] Switch between 2 spaces and 4 spaces
         - [ ] Show tab setting in LuaLine
-    - [ ] Setup hotkeys
-    - [ ] Split window
-    - [ ] Maybe a build in terminal
-    - [ ] hot key to toggle relative line numbers
     - [ ] Git diff support
-    - [ ] Allow buffer to be centered
+    - [ ] Molten-nvim
+    - [ ] Neorg
 
+- [ ] tmux
+
+- [ ] Youtube music command line player (ytui)
 - [ ] Kitty with Oxocarbon theme: set ctrl + bckspace to delete word
+    - [ ] Figure out searching in terminal buffer
 - [ ] LF
-- [ ] Setup LF hotkeys
     - [ ] Hot key to open current folder from LF in terminal
     - [ ] open current lf folder in vi
 - [ ] Signal (or combined messaging app)
 - [ ] Obsidian with dropbox
-- [ ] Youtube music command line player (ytui)
+- [ ] Nicer bluetooth thing?
 
 
 # Dev environment
 - [X] Git
 - [X] VSCode (for working with Notebooks)
 - [X] Python (3.11) 
-- [ ] Starship
 - [X] Docker
+- [ ] Golang
+- [ ] Starship
 - [ ] Javascript
 - [ ] Rust
-- [ ] Golang
 - [ ] C#
 - [ ] C
 - [ ] ? Ocaml

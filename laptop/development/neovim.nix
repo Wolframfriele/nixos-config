@@ -25,6 +25,17 @@
       telescope-fzf-native-nvim
       
       {
+        plugin = zen-mode-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/zen.lua;
+      }
+      {
+        plugin = nvim-colorizer-lua;
+        type = "lua";
+        config = "require('colorizer').setup()";
+      }
+
+      {
         plugin = nvim-autopairs;
         type = "lua";
         config = "require('nvim-autopairs').setup()";
