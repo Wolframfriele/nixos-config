@@ -1,31 +1,32 @@
-local on_attach = function(_, bufnr)
+-- See: https://github.com/neovim/nvim-lspconfig/tree/54eb2a070a4f389b1be0f98070f81d23e2b1a715#suggested-configuration
+local opts = { noremap=true, silent=true }
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '<C-u>', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', '<C-e>', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
-    local bufmap = function(keys, func)
-        vim.keymap.set('n', keys, func, { buffer = bufnr })
-    end
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-    bufmap('<leader>r', vim.lsp.buf.rename)
-    bufmap('<leader>a', vim.lsp.buf.code_action)
-
-    bufmap('gd', vim.lsp.buf.definition)
-    bufmap('gD', vim.lsp.buf.declaration)
-    bufmap('gI', vim.lsp.buf.implementation)
-    bufmap('<leader>D', vim.lsp.buf.type_definition)
-
-    bufmap('gr', require('telescope.builtin').lsp_references)
-    bufmap('<leader>s', require('telescope.builtin').lsp_document_symbols)
-    bufmap('<leader>S', require('telescope.builtin').lsp_dynamic_workspace_symbols)
-
-    bufmap('K', vim.lsp.buf.hover)
-
-    vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-        vim.lsp.buf.format()
-    end, {})
+  -- Mappings.
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
-
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+-- Lua
 
 require('neodev').setup()
 require("lsp-format").setup {}
@@ -60,20 +61,15 @@ require'lspconfig'.lua_ls.setup {
     end
   }
 
+-- Nix
+
 require('lspconfig').rnix.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
 
-require('lspconfig').pyright.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
- }
 
-require('lspconfig').ruff_lsp.setup {
-    on_attach = require("lsp-format").on_attach,
-    capabilities = capabilities,
-}
+-- Golang
 
 require('lspconfig').gopls.setup ({
     on_attach = on_attach,
@@ -85,12 +81,6 @@ require('lspconfig').gopls.setup ({
     }
 })
 
-local group_black = vim.api.nvim_create_augroup("Black", { clear = true })
-vim.api.nvim_create_autocmd("bufWritePost", {
-	pattern = "*.py",
-	command = "silent !black %",
-	group = group_black,
-})
 
 local group_go = vim.api.nvim_create_augroup("gofumpt", { clear = true })
 vim.api.nvim_create_autocmd("bufWritePost", {
@@ -98,3 +88,68 @@ vim.api.nvim_create_autocmd("bufWritePost", {
 	command = "silent !gofumpt -w %",
 	group = group_go,
 })
+
+-- Python 
+
+require('lspconfig').pyright.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+ }
+
+local on_attach_ruff = function(client, bufnr)
+  -- Disable hover in favor of Pyright
+  client.server_capabilities.hoverProvider = false
+end
+
+require('lspconfig').ruff_lsp.setup {
+    on_attach = on_attach_ruff,
+    capabilities = capabilities,
+    init_options = {
+        settings = {
+          -- ...
+        },
+      },
+      commands = {
+        RuffAutofix = {
+            function()
+                vim.lsp.buf.execute_command {
+                    command = 'ruff.applyAutofix',
+                    arguments = {
+                        { uri = vim.uri_from_bufnr(0) },
+                    },
+                }
+            end,
+          description = 'Ruff: Fix all auto-fixable problems',
+        },
+        RuffOrganizeImports = {
+          function()
+            vim.lsp.buf.execute_command {
+              command = 'ruff.applyOrganizeImports',
+              arguments = {
+                { uri = vim.uri_from_bufnr(0) },
+              },
+            }
+          end,
+          description = 'Ruff: Format imports',
+        },
+        RuffFormat = {
+            function()
+            vim.lsp.buf.execute_command {
+              command = 'ruff.applyFormat',
+              arguments = {
+                { uri = vim.uri_from_bufnr(0) },
+              },
+            }
+          end,
+          description = 'Ruff: Format code',
+        },
+    },
+}
+
+local group_ruff_format = vim.api.nvim_create_augroup("Ruff", { clear = true })
+vim.api.nvim_create_autocmd("bufWritePost", {
+	pattern = "*.py",
+	command = "RuffFormat",
+	group = group_ruff_format,
+})
+

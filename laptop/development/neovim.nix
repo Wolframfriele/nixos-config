@@ -118,13 +118,10 @@
 
     extraPackages = with pkgs; [
       wl-clipboard
-
-      # efm-langserver
-
+      gcc
       lua-language-server
       rnix-lsp
       pyright
-      black
       ruff-lsp
       fd
       gopls

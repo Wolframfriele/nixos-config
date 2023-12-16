@@ -25,10 +25,11 @@
 - [X] Figure out way to get waybar windows to go on top of other
 - [X] Turn off laptop when 5% battery left
 - [X] battery warning
+- [ ] Add hotkey's to adjust window sizing
 
-- [ ] Image viewer
-- [ ] Thumbnails
-- [ ] Preview with spacebar
+- [ ] Image viewer!
+- [ ] Thumbnails!
+- [ ] Preview with spacebar!
 - [X] Closing laptop lid disables screen 1 if more than 1 display's are present
     - [X] Find way to add bash scripts to config
         - [X] look into writeShellScripts
@@ -38,7 +39,7 @@
 - [ ] greetd with tuigreet
 - [ ] Screensharing in discord and Teams
 - [ ] Automatic Garbage collection nix store
-- [ ] Fix waybar crashing when plugging in new screen
+- [X] Fix waybar crashing when plugging in new screen
 
 # Applications
 - [X] btop
@@ -50,7 +51,7 @@
         - [X] Python
             - [X] Pyright (or pylyzer)
             - [X] Ruff
-            - [ ] Format with ruff instead
+            - [X] Format with ruff instead
             - [ ] remove mypy and change to pyright
             - [ ] play with pylyzer
         - [ ] Rust
@@ -63,7 +64,7 @@
     - [X] Comment
     - [X] indent blankline
     - [X] nvim-autopairs
-    - [ ] Allow buffer to be centered
+    - [X] Allow buffer to be centered
     - [ ] Setup hotkey to copy out from neovim 
     - [ ] Whichkey
     - [ ] hot key to toggle relative line numbers

@@ -16,6 +16,10 @@ vim.keymap.set("n", "<Leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<Leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<Leader>fh", builtin.help_tags, {})
 
+-- Zenmode keybindings
+vim.keymap.set("n", "<Leader>c", ":ZenMode<CR>", {})
+
+
 vim.o.number = true
 -- vim.o.relativenumber = true
 

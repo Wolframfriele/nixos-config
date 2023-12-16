@@ -11,6 +11,7 @@
     grim 
     slurp
     batsignal
+    swayidle
     # inputs.hyprland-contrib.packages.x86_64-linux.grimblast 
     (import ./laptop-lid.nix { inherit pkgs; })
   ];
@@ -132,14 +133,11 @@
       # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
       # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
       # rules below would make the specific app transparent
-      windowrulev2 = opacity 1 1,class:^(kitty)$
       windowrulev2 = animation popin,class:^(kitty)$,title:^(update-sys)$
       windowrulev2 = animation popin,class:^(thunar)$
       windowrulev2 = opacity 1 1,class:^(thunar)$
       windowrulev2 = opacity 1 1,class:^(VSCodium)$
-      windowrulev2 = animation popin,class:^(chromium)$
-      windowrulev2 = animation slide,class:^(wofi)$
-      windowrulev2 = move 100%-433 53,class:^(wofi)$,title:^(clippick)$
+      windowrulev2 = idleinhibit fullscreen,class:^(firefox)$
 
       # workspace rules
       workspace = 4, monitor:eDP-1, default:true
@@ -235,5 +233,4 @@
     # "WLR_NO_HARDWARE_CURSORS" = "1";
     # "WLR_EGL_NO_MODIFIRES" = "1";
   };
-
-}
+ }

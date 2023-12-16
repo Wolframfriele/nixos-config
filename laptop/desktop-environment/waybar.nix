@@ -7,6 +7,7 @@
     btop
     blueman
     libnotify
+    killall
   ];
 
   # services.playerctld.enable = true;
