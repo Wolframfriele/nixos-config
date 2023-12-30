@@ -27,8 +27,10 @@
 - [X] battery warning
 - [ ] Add hotkey's to adjust window sizing
 
-- [ ] Image viewer!
-- [ ] Thumbnails!
+- [X] Image viewer!
+- [X] Thumbnails!
+    - [ ] Add support for webp
+- [X] change feh to floating window
 - [ ] Preview with spacebar!
 - [X] Closing laptop lid disables screen 1 if more than 1 display's are present
     - [X] Find way to add bash scripts to config
@@ -48,6 +50,7 @@
     - [X] Telescope
     - [X] Treesitter
     - [ ] LSP
+        - [X] Setup hotkey's to move through LSP
         - [X] Python
             - [X] Pyright (or pylyzer)
             - [X] Ruff
@@ -58,23 +61,26 @@
             - [ ] rust-analyzer
             - [ ] rust-fmt
         - [ ] Spell Check
-        - [ ] Setup hotkey's to move through LSP
         - [ ] Typescript
     - [X] File Tree (nvim-tree)
     - [X] Comment
     - [X] indent blankline
     - [X] nvim-autopairs
     - [X] Allow buffer to be centered
-    - [ ] Setup hotkey to copy out from neovim 
     - [ ] Whichkey
-    - [ ] hot key to toggle relative line numbers
+    - [ ] Hotkeys:
+        - [ ] hot key to toggle relative line numbers
+        - [ ] Setup hotkey to copy out from neovim 
+        - [ ] Switch between 2 spaces and 4 spaces
+        - [ ] Make it that search does not highlight after pressing enter
+        - [ ] Learn keys to move through a file after searching
     - [X] Nvim-colorizer
     - [ ] guess-indent(maybe?)
-    - [ ] Switch between 2 spaces and 4 spaces
-        - [ ] Show tab setting in LuaLine
+        - [ ] Show if tabs are 2 or 4 spaces in LuaLine
     - [ ] Git diff support
     - [ ] Molten-nvim
     - [ ] Neorg
+    - [ ] Harpoon
 
 - [ ] tmux
 

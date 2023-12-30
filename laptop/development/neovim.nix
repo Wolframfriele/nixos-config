@@ -25,6 +25,11 @@
       telescope-fzf-native-nvim
       
       {
+        plugin = neorg;
+        type = "lua";
+        config = builtins.readFile ./plugins/neorg.lua;
+      }
+      {
         plugin = zen-mode-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/zen.lua;

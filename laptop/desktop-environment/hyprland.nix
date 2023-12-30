@@ -128,6 +128,7 @@
       windowrule = float,^(thunar)$
       windowrule = float, title:^(btop)$
       windowrule = float, title:^(update-sys)$
+      windowrule = float,^(feh)$
 
       # windowrule v2
       # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$

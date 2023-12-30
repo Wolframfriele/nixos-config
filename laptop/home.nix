@@ -25,7 +25,7 @@
     (pkgs.nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
 
     firefox
-    /* obsidian */
+    obsidian
   ];
 
     

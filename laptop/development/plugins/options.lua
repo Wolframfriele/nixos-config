@@ -1,9 +1,29 @@
+vim.o.number = true
+vim.o.relativenumber = true
+
+vim.o.signcolumn = 'yes'
+vim.o.updatetime = 300
+
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+vim.o.softtabstop = 4
+
+vim.o.smartindent = true
+vim.o.wrap = false
+
+vim.o.hlsearch = false
+vim.opt.incsearch = true
+
+vim.opt.termguicolors = true
+vim.o.colorcolumn = 80
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Copy and paste to clipboard
-vim.api.nvim_set_keymap("n", "<C-c>", '"+y$', {noremap=true, silent=true})
-vim.api.nvim_set_keymap("n", "<C-v>", '"+p$', {noremap=true, silent=true})
+-- Cancell me edit
+vim.keymap.set("i", "<C-t>", "<Esc>")
+
 
 -- Nvim Tree keybindings
 vim.keymap.set("n", "<Leader>tt", ":NvimTreeToggle<CR>", {})
@@ -19,16 +39,18 @@ vim.keymap.set("n", "<Leader>fh", builtin.help_tags, {})
 -- Zenmode keybindings
 vim.keymap.set("n", "<Leader>c", ":ZenMode<CR>", {})
 
+-- paste over word without yanking the deleted word
+vim.keymap.set("x", "<leader>p", [["_dP]])
 
-vim.o.number = true
--- vim.o.relativenumber = true
+-- yank to clipboard 
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.o.signcolumn = 'yes'
-vim.o.updatetime = 300
+vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
-vim.o.softtabstop = 4
-
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
