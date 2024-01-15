@@ -23,6 +23,14 @@
       indent-blankline-nvim
       nvim-web-devicons
       telescope-fzf-native-nvim
+
+      rust-tools-nvim
+      plenary-nvim
+      {
+        plugin = obsidian-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/obsidian.lua;
+      }
       
       {
         plugin = neorg;
@@ -77,6 +85,7 @@
           p.tree-sitter-rust
           p.tree-sitter-go
           p.tree-sitter-json
+          p.tree-sitter-norg
         ]));
         type = "lua";
         config = builtins.readFile ./plugins/treesitter.lua;
@@ -123,7 +132,6 @@
 
     extraPackages = with pkgs; [
       wl-clipboard
-      gcc
       lua-language-server
       rnix-lsp
       pyright

@@ -42,6 +42,7 @@
       # core.editor = "vim";
       # Cache git credentials for 15 minutes
       credential.helper = "cache";
+      init.defaultBranch = "main";
     };
   };
 
