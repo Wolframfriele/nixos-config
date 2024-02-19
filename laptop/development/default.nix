@@ -14,6 +14,13 @@
     ripgrep
     fzf
     tree
+    gitui
     zola
+    minify
+    gnumake
+    neovide
+    rpi-imager 
+    jdk21
+    maven
   ];
 }

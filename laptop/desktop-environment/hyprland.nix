@@ -26,8 +26,8 @@
 
       # Execute your favorite apps at launch
       # exec-once = ~/.config/hypr/scripts/xdg-portal-hyprland # Make sure the correct portal is running
-      exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # Wayland magic (screen sharing etc.)
-      exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # More wayland magic (screen sharing etc.)
+      # exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # Wayland magic (screen sharing etc.)
+      # exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # More wayland magic (screen sharing etc.)
       # exec-once = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 # used for user sudo graphical elevation
       
       exec-once = batsignal -n BAT0 -w 30 -c 15 -d 10 -D 'systemctl suspend'
@@ -213,12 +213,7 @@
       
       # New attempt at switching of screen when closing lid
       bindl = , switch:Lid Switch, exec, laptop-lid 
-      # trigger when the switch is turning off                     
-      # bindl = , switch:off:Lid Switch,exec, ~/.config/hypr/scripts/open-laptop
-      # trigger when the switch is turning on
-      # bindl = , switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"'';
-
-
+      '';
   };
 
   systemd.user.sessionVariables = {

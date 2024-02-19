@@ -24,6 +24,9 @@ vim.g.maplocalleader = " "
 -- Cancell me edit
 vim.keymap.set("i", "<C-t>", "<Esc>")
 
+-- Ctrl + backspace to delete word
+vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', {noremap = true})
+
 
 -- Nvim Tree keybindings
 vim.keymap.set("n", "<Leader>tt", ":NvimTreeToggle<CR>", {})

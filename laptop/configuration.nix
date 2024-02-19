@@ -121,32 +121,6 @@
 
   services.tumbler.enable = true; # Thumbnail support for images
   
-  # services.greetd = {
-  #   enable = true;
-  #   settings = rec {
-  #     initial_session = {
-  #       command = "${pkgs.hyprland}/bin/hyprland";
-  #       user = "wolf";
-  #     };
-  #     default_session = initial_session;
-  #   };
-  # };
-
-  # greetd = {
-  #   enable = true;
-  #   restart = false;
-  #   settings = {
-  #     default_session = {
-  #       command = ''
-  #         ${
-  #           lib.makeBinPath [ pkgs.greetd.tuigreet ]
-  #         }/tuigreet -r --asterisks --time \
-  #           --cmd ${runner}
-  #       '';
-  #     };
-  #   };
-  # };
-  
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
   # services.openssh = {
@@ -157,15 +131,15 @@
   #   passwordAuthentication = false;
   # };
 
-  xdg = {
-    portal = {
-      enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
-        xdg-desktop-portal-gtk
-      ];
-    };
-  };
+  # xdg = {
+  #   portal = {
+  #     enable = true;
+  #     extraPortals = with pkgs; [
+  #       xdg-desktop-portal-wlr
+  #       xdg-desktop-portal-gtk
+  #     ];
+  #   };
+  # };
 
   nix = {                                   # Nix Package Manager settings
     settings ={

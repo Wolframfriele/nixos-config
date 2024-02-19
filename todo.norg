@@ -1,0 +1,123 @@
+* After Update
+
+- ( ) Fix workspaces icons
+- ( ) Fix obsidian
+- ( ) Fix XDG portal error
+
+* Setup a desktop environment
+- (x) Nerd fonts
+- (x) Window Manager [Hyprland]
+- (x) status bar [waybar, later maybe ewww]
+- (x) App Launcher [Anyrun or Fuzzel]
+-- (x) Add web search
+-- ( ) Add file search (kidex)
+- (x) Screenshots
+- (x) wlogout
+- (x) Notifications [Mako]
+- (x) Audio: controls and playing music
+- (x) Get bluetooth working
+- (x) Control screen brightness with hotkeys
+- (x) Thunar for file management
+- (x) Dark theme GTK apps
+- (x) Mouse Acceleration off, and lower sensitivity
+- (x) Figure out way to get waybar windows to go on top of other
+- (x) Turn off laptop when 5% battery left
+- (x) battery warning
+- ( ) Add hotkey's to adjust window sizing
+
+- (x) Image viewer!
+- (x) Thumbnails!
+  - ( ) Add support for webp
+- (x) change feh to floating window
+- ( ) Preview with spacebar!
+- (x) Closing laptop lid disables screen 1 if more than 1 display's are present
+-- (x) Find way to add bash scripts to config
+-- (x) look into writeShellScripts
+- (x) Turn off screen after 120 seconds, 
+- ( ) Lock screen after 2 minutes, 
+- ( ) Sleep after 8 minutes. Playing youtube does not count as idle.
+- ( ) greetd with tuigreet
+- ( ) Screensharing in discord and Teams
+- ( ) Automatic Garbage collection nix store
+- (x) Fix waybar crashing when plugging in new screen
+
+* Applications
+- (x) btop
+- ( ) Neovim
+-- (x) Oxocarbon
+-- (x) Telescope
+-- (x) Treesitter
+-- ( ) LSP
+--- (x) Setup hotkey's to move through LSP
+--- (x) Python
+---- (x) Pyright (or pylyzer)
+---- (x) Ruff
+---- (x) Format with ruff instead
+---- (x) remove mypy and change to pyright
+---- ( ) play with pylyzer
+--- ( ) Rust
+---- (x) rust-analyzer
+---- ( ) rust-fmt
+--- ( ) Spell Check
+--- ( ) Typescript
+-- (x) File Tree (nvim-tree)
+-- (x) Comment
+-- (x) indent blankline
+-- (x) nvim-autopairs
+-- (x) Allow buffer to be centered
+-- ( ) Whichkey
+-- ( ) Hotkeys:
+--- ( ) hot key to toggle relative line numbers
+--- ( ) Setup hotkey to copy out from neovim 
+--- ( ) Switch between 2 spaces and 4 spaces
+---- ( ) Make it that search does not highlight after pressing enter
+---- ( ) Learn keys to move through a file after searching
+-- (x) Nvim-colorizer
+-- ( ) guess-indent(maybe?)
+--- ( ) Show if tabs are 2 or 4 spaces in LuaLine
+-- ( ) Git diff support
+-- ( ) Molten-nvim
+-- (x) Neorg
+  -- ( ) Harpoon
+- ( ) Yazi
+
+- ( ) tmux
+
+- ( ) Youtube music command line player (ytui)
+- ( ) Kitty with Oxocarbon theme: set ctrl + bckspace to delete word
+-- ( ) Figure out searching in terminal buffer
+- ( ) LF
+-- ( ) Hot key to open current folder from LF in terminal
+-- ( ) open current lf folder in vi
+- ( ) Signal (or combined messaging app)
+- ( ) Obsidian with dropbox
+- ( ) Nicer bluetooth thing?
+
+
+* Dev environment
+- (x) Git
+- (x) VSCode (for working with Notebooks)
+- (x) Python (3.11) 
+- (x) Docker
+- (x) Golang
+-- ( ) Starship
+- ( ) Javascript
+- (x) Rust
+-- ( ) C#
+-- (x) C
+- ( ) Kubectl
+- ( ) Lapce
+- (x) Ripgrep
+- (x) fzf
+- (x) tree
+ 
+* Configure for comfort
+- (x) Two finger click is right click
+- (x) Pop up message when battery low
+- (x) Mouse changes when hovering something clickable
+
+* Learn
+- (x) Search project for word in neovim
+- ( ) Tridactyl
+
+

@@ -1,0 +1,15 @@
+2024-02-02 06:38:28 - Neovide panicked with the message 'Failed to initialize any backend! Wayland status: XdgRuntimeDirNotSet X11 status: XOpenDisplayFailed'. (File: /build/cargo-vendor-dir/winit-0.24.0/src/platform_impl/linux/mod.rs; Line: 626, Column: 9)
+   0: <unknown>
+   1: <unknown>
+   2: <unknown>
+   3: <unknown>
+   4: <unknown>
+   5: <unknown>
+   6: <unknown>
+   7: <unknown>
+   8: <unknown>
+   9: <unknown>
+  10: __libc_start_call_main
+  11: __libc_start_main@@GLIBC_2.34
+  12: <unknown>
+

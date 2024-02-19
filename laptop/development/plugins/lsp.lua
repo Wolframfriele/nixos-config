@@ -192,3 +192,21 @@ vim.api.nvim_create_autocmd("bufWritePost", {
 	group = group_ruff_format,
 })
 
+-- HTML
+-- require('lspconfig').hmtl.setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+-- }
+--
+--
+
+-- C
+
+local lspconfig = require('lspconfig')
+lspconfig.ccls.setup {
+  init_options = {
+    cache = {
+      directory = ".ccls-cache";
+    };
+  }
+}
