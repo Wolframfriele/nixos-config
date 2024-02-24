@@ -10,7 +10,6 @@
   ];
   
   home.packages = with pkgs; [
-    vscode
     ripgrep
     fzf
     tree
@@ -23,4 +22,11 @@
     jdk21
     maven
   ];
+ 
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode.fhs;
+  };
 }
+
+

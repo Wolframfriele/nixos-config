@@ -25,7 +25,7 @@ vim.g.maplocalleader = " "
 vim.keymap.set("i", "<C-t>", "<Esc>")
 
 -- Ctrl + backspace to delete word
-vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', {noremap = true})
+vim.api.nvim_set_keymap('i', '<C-h>', '<C-w>', {noremap = true})
 
 
 -- Nvim Tree keybindings
