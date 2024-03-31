@@ -14,6 +14,8 @@
     networkmanagerapplet
     pavucontrol
     playerctl
+    vial
+    vlc
   ];
   # music player - mpd
   # home.file.".config/mpd" = {

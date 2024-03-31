@@ -120,7 +120,12 @@
   ];
 
   services.tumbler.enable = true; # Thumbnail support for images
-  
+
+  # Service related to Vial
+ services.udev.extraRules = ''
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+''; 
+
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
   # services.openssh = {
