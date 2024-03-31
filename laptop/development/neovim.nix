@@ -152,7 +152,7 @@
     extraPackages = with pkgs; [
       wl-clipboard
       lua-language-server
-      rnix-lsp
+      # rnix-lsp
       pyright
       ruff-lsp
       fd
