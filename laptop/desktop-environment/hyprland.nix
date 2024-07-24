@@ -81,19 +81,17 @@
 
         rounding = 2
 
-        blur = {
-          # enabled = false
-          # blur_size = 7
-          # blur_passes = 1
-          # blur_new_optimizations = on
-          # blur_xray = true
-        }
+        #blur = {
+        #  enabled = false
+        #}
+
+       
         
         # blurls = lockscreen
 
         drop_shadow = false
       }
-
+      
       animations {
         enabled = yes
 

@@ -146,6 +146,15 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
   #   };
   # };
 
+  services = {
+    syncthing = {
+      enable = true;
+      user = "wolf";
+      dataDir = "/home/wolf/notes";
+      configDir = "/home/wolf/.config/syncthing";
+    };
+  };
+
   nix = {                                   # Nix Package Manager settings
     settings ={
       auto-optimise-store = true;           # Optimise syslinks

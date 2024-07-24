@@ -10,6 +10,10 @@
   ];
 
   home.packages = with pkgs; [
+    logseq
+    syncthing
+    obsidian
+    maestral
     wl-clipboard
     networkmanagerapplet
     pavucontrol

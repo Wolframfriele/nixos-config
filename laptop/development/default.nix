@@ -21,6 +21,7 @@
     rpi-imager 
     jdk21
     maven
+    gradle
   ];
  
   programs.vscode = {
