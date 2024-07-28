@@ -16,7 +16,7 @@ vim.o.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
-vim.o.colorcolumn = 80
+--vim.o.colorcolumn = 80
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "

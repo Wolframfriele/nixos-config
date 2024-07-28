@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    gnome.file-roller
+    file-roller
     feh
   ];
 

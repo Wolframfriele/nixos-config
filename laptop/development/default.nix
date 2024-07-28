@@ -17,11 +17,10 @@
     zola
     minify
     gnumake
-    neovide
     rpi-imager 
     jdk21
-    maven
     gradle
+    jetbrains.idea-community
   ];
  
   programs.vscode = {

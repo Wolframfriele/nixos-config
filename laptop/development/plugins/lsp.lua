@@ -71,10 +71,10 @@ require'lspconfig'.lua_ls.setup {
 
 -- Nix
 
-require('lspconfig').rnix.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
+--require('lspconfig').nil.setup {
+--    on_attach = on_attach,
+--    capabilities = capabilities,
+--}
 
 
 -- Golang

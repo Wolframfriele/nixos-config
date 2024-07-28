@@ -12,13 +12,13 @@
     config = {
       plugins = with anyrun.packages.${pkgs.system}; [
         applications
-        randr
         rink
-        shell
-        kidex
+        #randr This one bugged out (should be able to change screen config with it)
+        #shell
+        # kidex
         # symbols
-        websearch
-        translate
+        #websearch
+        #translate
         # anyrun-nixos-options.packages.${pkgs.system}.default
       ];
 

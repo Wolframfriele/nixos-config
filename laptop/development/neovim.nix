@@ -29,21 +29,11 @@
       rust-tools-nvim
       plenary-nvim
       markdown-preview-nvim     
-      # {
-      #   plugin = obsidian-nvim;
-      #   type = "lua";
-      #   config = builtins.readFile ./plugins/obsidian.lua;
-      # }
 
       {
         plugin = nvim-ts-autotag;
         type = "lua";
         config = "require('nvim-ts-autotag').setup()";
-      }
-      {
-        plugin = neorg;
-        type = "lua";
-        config = builtins.readFile ./plugins/neorg.lua;
       }
       {
         plugin = zen-mode-nvim;
@@ -61,14 +51,14 @@
         type = "lua";
         config = "require('nvim-autopairs').setup()";
       }
-      {
-        plugin = which-key-nvim;
-        type = "lua";
-        config = ''
-          local wk = require("which-key")
-          wk.register(mappings, opts)
-        '';
-      }
+      #{
+      #  plugin = which-key-nvim;
+      #  type = "lua";
+      #  config = ''
+      #    local wk = require("which-key")
+      #    wk.register(mappings, opts)
+      #  '';
+      #}
       
       {
         plugin = nvim-lspconfig;
@@ -110,7 +100,6 @@
         config = "colorscheme oxocarbon";
       }
 
-       
       {
         plugin = nvim-tree-lua;
         type = "lua";
@@ -152,13 +141,13 @@
     extraPackages = with pkgs; [
       wl-clipboard
       lua-language-server
-      # rnix-lsp
       pyright
+      nil
       ruff-lsp
       fd
       gopls
       gofumpt
-      nodePackages.vscode-html-languageserver-bin
+      nodePackages.vscode-langservers-extracted
       ccls
     ];
   };

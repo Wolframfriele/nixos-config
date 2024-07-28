@@ -26,15 +26,6 @@
         modules-center = [ "clock" ];
         modules-right = [ "pulseaudio" "backlight" "tray" "battery" "custom/powerbutton" ];
 
-        # mpris = {
-        #   format = "{status_icon}<span weight='bold'>{artist}</span> | {title}";
-        #   status-icons = {
-        #     playing = "󰎈 ";
-        #     paused =  "󰏤 ";
-        #     stopped = "󰓛 ";
-        #   };
-        # };
-
         "custom/nix" = {
           format = " 󱄅 ";
         };
@@ -43,17 +34,6 @@
           on-click = "activate";
         };
  
-        # "network#interface" = {
-        #   format-ethernet = "󰣶  {ifname}";
-        #   format-wifi = "󰖩 {ifname}";
-        #   tooltip = true;
-        #   tooltip-format = "{ipaddr}";
-        # };
-        #
-        # "network#speed" = {
-        #   format = "⇡{bandwidthUpBits} ⇣{bandwidthDownBits}";
-        # };
-
         cpu = {
           interval = 10;
           format = " {usage}%";
@@ -88,7 +68,6 @@
         };
 
         backlight = {
-          # device = "intel_backlight";
           format = "{icon} {percent}%";
           format-icons = [ "󰃞" "󰃟" "󰃠" ];
           on-scroll-up = "brightnessctl set 5%+";
@@ -112,7 +91,7 @@
         clock = {
           format = "{:%H:%M}";
           tooltip = true;
-          tooltip-format = "{:  %A, %Y-%m-%d, Week %U}";
+          tooltip-format = "{:%A, %Y-%m-%d, Week %U}";
         };
 
         # "custom/notification" = {
@@ -127,8 +106,8 @@
           format-muted = "";
           on-click = "pamixer -t";
           on-click-right = "pavucontrol";
-          on-scroll-up = "pamixer -i 5";
-          on-scroll-down = "pamixer -d 5";
+          on-scroll-up = "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+";
+          on-scroll-down = "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-";
           scroll-step = 5;
           format-icons = {
             headphone = "";

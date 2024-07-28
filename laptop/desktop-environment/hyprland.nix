@@ -5,13 +5,15 @@
   # ];
 
   home.packages = with pkgs; [
+    hypridle
+    hyprlock
     wl-clipboard
     # networkmanagerapplet
     pavucontrol
     grim 
     slurp
     batsignal
-    swayidle
+    # swayidle
     # inputs.hyprland-contrib.packages.x86_64-linux.grimblast 
     (import ./laptop-lid.nix { inherit pkgs; })
   ];
@@ -35,7 +37,8 @@
       exec-once = nm-applet --indicator # Systray app for Network/Wifi
       exec-once = waybar & disown
 
-      exec-once = swayidle -w timeout 120 "hyprctl dispatch dpms"
+      exec-once = hypridle
+      # exec-once = swayidle -w timeout 120 "hyprctl dispatch dpms"
 
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
       input {
@@ -109,8 +112,8 @@
 
       master {
         # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-        new_is_master = false
         orientation = right
+        new_status = inherit
       }
 
       gestures {
@@ -147,14 +150,14 @@
 
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
       bind = $mainMod, Q, killactive, # close the active window
-      bind = $mainMod, L, exec, swaylock # Lock the screen
+      bind = $mainMod, L, exec, hyprlock # Lock the screen
       bind = $mainMod, M, exec, wlogout --protocol layer-shell # show the logout window
       bind = $mainMod SHIFT, M, exit, # Exit Hyprland all together no (force quit Hyprland)
 
       bind = $mainMod, E, exec, anyrun # Show the graphical app launcher
       bind = $mainMod, T, exec, kitty  # open the terminal
-      bind = $mainMod, F, exec, firefox # Execute firefox
-      bind = $mainMod, B, exec, thunar # Show the graphical file browser
+      bind = $mainMod, B, exec, firefox # Execute firefox
+      bind = $mainMod, F, exec, thunar # Show the graphical file browser
 
       bind = $mainMod, V, togglefloating, # Allow a window to float
       # bind = $mainMod, P, pseudo, # dwindle
@@ -227,4 +230,53 @@
     # "WLR_NO_HARDWARE_CURSORS" = "1";
     # "WLR_EGL_NO_MODIFIRES" = "1";
   };
- }
+
+  # hyprlock config
+  home.file.".config/hypr/hyprlock.conf".source = ./hyprlock.conf;
+  
+  # hypridle config
+  home.file.".config/hypr/hypridle.conf".source = ./hypridle.conf;
+
+
+  programs.wlogout = {
+    enable = true;
+    layout = [
+      {
+          label = "lock";
+          action = "hyprlock";
+          text = "Lock";
+          keybind = "l";
+      }
+      {
+          label = "hibernate";
+          action = "systemctl hibernate";
+          text = "Hibernate";
+          keybind = "h";
+      }
+      {
+          label = "logout";
+          action = "loginctl terminate-user $USER";
+          text = "Logout";
+          keybind = "e";
+      }
+      {
+          label = "shutdown";
+          action = "systemctl poweroff";
+          text = "Shutdown";
+          keybind = "s";
+      }
+      {
+          label = "suspend";
+          action = "systemctl suspend";
+          text = "Suspend";
+          keybind = "u";
+      }
+      {
+          label = "reboot";
+          action = "systemctl reboot";
+          text = "Reboot";
+          keybind = "r";
+      }
+    ];
+  };
+}

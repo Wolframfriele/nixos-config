@@ -6,29 +6,15 @@
   imports = [
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
-
-    # Import home-manager's NixOS module
-    # inputs.home-manager.nixosModules.home-manager 
   ];
 
   nixpkgs = {
-    # You can add overlays here
-     # overlays = [
-      # If you want to use overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
-    # ];
-    # Configure your nixpkgs instance
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
-      permittedInsecurePackages = lib.optional (pkgs.obsidian.version == "1.4.16") "electron-25.9.0";
+      permittedInsecurePackages = [
+        "electron-27.3.11"
+      ];    
     };
   };
 
@@ -60,21 +46,12 @@
     LC_TIME = "nl_NL.UTF-8";
   };
 
-  # Enable sound with pipewire.
-  sound.enable = true;
-  # hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    # media-session.enable = true;
   };
 
   # Bluetooth
@@ -126,26 +103,6 @@
 KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
 ''; 
 
-  # This setups a SSH server. Very important if you're setting up a headless system.
-  # Feel free to remove if you don't need it.
-  # services.openssh = {
-  #   enable = true;
-  #   # Forbid root login through SSH.
-  #   permitRootLogin = "no";
-  #   # Use keys only. Remove if you want to SSH using password (not recommended)
-  #   passwordAuthentication = false;
-  # };
-
-  # xdg = {
-  #   portal = {
-  #     enable = true;
-  #     extraPortals = with pkgs; [
-  #       xdg-desktop-portal-wlr
-  #       xdg-desktop-portal-gtk
-  #     ];
-  #   };
-  # };
-
   services = {
     syncthing = {
       enable = true;
@@ -164,7 +121,7 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
       dates = "weekly";
       options = "--delete-older-than 2d";
     };
-    package = pkgs.nixVersions.unstable;    # Enable nixFlakes on system
+    package = pkgs.nixVersions.latest;    # Enable nixFlakes on system
     registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = ''
       experimental-features = nix-command flakes
@@ -177,10 +134,6 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system = {                                # NixOS settings
-    # autoUpgrade = {                         # Allow auto update (not useful in flakes)
-    #   enable = true;
-    #   channel = "https://nixos.org/channels/nixos-unstable";
-    # };
     stateVersion = "23.05";
   };
 }
