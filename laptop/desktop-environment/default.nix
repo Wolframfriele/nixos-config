@@ -19,6 +19,7 @@
     playerctl
     vial
     vlc
+    tor
   ];
   # music player - mpd
   # home.file.".config/mpd" = {

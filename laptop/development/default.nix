@@ -18,7 +18,7 @@
     minify
     gnumake
     rpi-imager 
-    jdk21
+    jdk17
     gradle
     jetbrains.idea-community
   ];
