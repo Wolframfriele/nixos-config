@@ -23,8 +23,9 @@
     extraConfig = ''
       # Setup monitors
       #monitor=,preferred,auto,auto
-      monitor=eDP-1,1920x1080@60,3840x1080,1
-      monitor=DP-2,3840x2160@60,0x0,1
+      monitor = eDP-1, 1920x1080@60, 0x0, 1
+      monitor = DP-2, 3840x2160@60, -3840x-960, 1
+      monitor = DP-4, 3840x2160@60, -3840x-960, 1
 
       # Execute your favorite apps at launch
       # exec-once = ~/.config/hypr/scripts/xdg-portal-hyprland # Make sure the correct portal is running
