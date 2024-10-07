@@ -24,7 +24,7 @@
       # Setup monitors
       #monitor=,preferred,auto,auto
       monitor = eDP-1, 1920x1080@60, 0x0, 1
-      monitor = DP-2, 3840x2160@60, -3840x-960, 1
+      # monitor = DP-2, 3840x2160@60, -3840x-960, 1
       monitor = DP-4, 3840x2160@60, -3840x-960, 1
 
       # Execute your favorite apps at launch
@@ -141,6 +141,7 @@
       windowrulev2 = opacity 1 1,class:^(thunar)$
       windowrulev2 = opacity 1 1,class:^(VSCodium)$
       windowrulev2 = idleinhibit fullscreen,class:^(firefox)$
+      windowrulev2 = idleinhibit fullscreen,class:^(vlc)$
 
       # workspace rules
       workspace = 4, monitor:eDP-1, default:true

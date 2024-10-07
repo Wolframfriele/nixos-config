@@ -21,7 +21,10 @@
 
   networking.hostName = "laptop";
   networking.networkmanager.enable = true;
-
+  # Allow vlc to stream to chromecast
+  # networking.firewall.enable = false;
+  # networking.firewall.allowedTCPPorts = [ 8010 ]; 
+  # networking.firewall.allowedUDPPortRanges = [ { from = 32768; to = 60999; } ];
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -71,9 +74,14 @@
       # openssh.authorizedKeys.keys = [
       #   Add your SSH public key(s) here, if you plan on using SSH to connect
       # ];
-      extraGroups = [ "networkmanager" "wheel" "docker" ];
+      extraGroups = [ "networkmanager" "wheel" "docker"  "plugdev" "dialout" ];
     };
   };
+
+  # Extra rights for rust embedded book
+  users.extraGroups.plugdev = { };
+  services.udev.packages = [ pkgs.openocd ];
+  
 
   environment.systemPackages = with pkgs; [
     vim
