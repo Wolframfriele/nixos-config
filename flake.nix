@@ -15,6 +15,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    mcmojave-hyprcursor.url = "github:libadoxon/mcmojave-hyprcursor";
     anyrun = {
       url = "github:Kirottu/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,7 +37,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.wolf = import ./laptop/home.nix;
-            home-manager.extraSpecialArgs = { inherit anyrun hyprland; };
+            home-manager.extraSpecialArgs = { inherit anyrun hyprland inputs; };
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
           }

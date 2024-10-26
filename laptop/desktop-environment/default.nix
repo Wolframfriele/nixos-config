@@ -7,6 +7,7 @@
     ./mako.nix
     ./anyrun.nix
     ./file-browsing.nix
+    ./hyprcursor.nix
   ];
 
   home.packages = with pkgs; [

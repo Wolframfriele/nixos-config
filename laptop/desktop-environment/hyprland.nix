@@ -1,20 +1,15 @@
+{pkgs, hyprland, ...}: {
 
-  {pkgs, hyprland, ...}: {
-  # imports = [
-  #   hyprland.homeManagerModules.default
-  # ];
 
   home.packages = with pkgs; [
     hypridle
     hyprlock
+    hyprcursor
     wl-clipboard
-    # networkmanagerapplet
     pavucontrol
     grim 
     slurp
     batsignal
-    # swayidle
-    # inputs.hyprland-contrib.packages.x86_64-linux.grimblast 
     (import ./laptop-lid.nix { inherit pkgs; })
   ];
 
@@ -22,10 +17,10 @@
     enable = true;
     extraConfig = ''
       # Setup monitors
-      #monitor=,preferred,auto,auto
+      # monitor=,preferred,auto,auto
       monitor = eDP-1, 1920x1080@60, 0x0, 1
       # monitor = DP-2, 3840x2160@60, -3840x-960, 1
-      monitor = DP-4, 3840x2160@60, -3840x-960, 1
+      # monitor = DP-4, 3840x2160@60, -3840x-960, 1
 
       # Execute your favorite apps at launch
       # exec-once = ~/.config/hypr/scripts/xdg-portal-hyprland # Make sure the correct portal is running
@@ -39,7 +34,6 @@
       exec-once = waybar & disown
 
       exec-once = hypridle
-      # exec-once = swayidle -w timeout 120 "hyprctl dispatch dpms"
 
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
       input {
@@ -215,7 +209,10 @@
       bindm = $mainMod, mouse:273, resizewindow
       
       # New attempt at switching of screen when closing lid
-      bindl = , switch:Lid Switch, exec, laptop-lid 
+      bindl = , switch:Lid Switch, exec, laptop-lid
+
+      env = HYPRCURSOR_THEME,McMojave
+      env = HYPRCURSOR_SIZE,35
       '';
   };
 
@@ -223,13 +220,14 @@
     "NIXOS_OZONE_WL" = "1"; # for any ozone-based browser & electron apps to run on wayland
     "MOZ_ENABLE_WAYLAND" = "1"; # for firefox to run on wayland
     "MOZ_WEBRENDER" = "1";
+    "WLR_NO_HARDWARE_CURSORS" = "1";
 
     # for hyprland with nvidia gpu, ref https://wiki.hyprland.org/Nvidia/
     # "LIBVA_DRIVER_NAME" = "nvidia";
     # "XDG_SESSION_TYPE" = "wayland";
     # "GBM_BACKEND" = "nvidia-drm";
     # "__GLX_VENDOR_LIBRARY_NAME" = "nvidia";
-    # "WLR_NO_HARDWARE_CURSORS" = "1";
+    # "HYPRCURSOR_THEME" = "McMojave";
     # "WLR_EGL_NO_MODIFIRES" = "1";
   };
 
