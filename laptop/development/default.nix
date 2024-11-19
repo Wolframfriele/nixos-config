@@ -10,6 +10,7 @@
   ];
   
   home.packages = with pkgs; [
+    helix
     ripgrep
     fzf
     tree
