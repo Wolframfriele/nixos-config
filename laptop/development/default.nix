@@ -18,15 +18,15 @@
     zola
     minify
     gnumake
-    rpi-imager 
-    jdk17
-    gradle
-    jetbrains.idea-community
+    # rpi-imager 
+    #jdk17
+    #gradle
+    #jetbrains.idea-community
   ];
  
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode.fhs;
+    # package = pkgs.vscode.fhs;
   };
 }
 

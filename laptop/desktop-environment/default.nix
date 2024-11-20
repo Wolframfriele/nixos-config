@@ -13,14 +13,14 @@
   home.packages = with pkgs; [
     logseq
     syncthing
-    maestral
+    # maestral
     wl-clipboard
     networkmanagerapplet
     pavucontrol
     playerctl
     vial
     vlc
-    chromium
+    # chromium
   ];
   # music player - mpd
   # home.file.".config/mpd" = {

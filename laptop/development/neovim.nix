@@ -31,6 +31,12 @@
       markdown-preview-nvim     
 
       {
+        plugin = gitsigns-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/gitsigns.lua;
+      }
+
+      {
         plugin = nvim-ts-autotag;
         type = "lua";
         config = "require('nvim-ts-autotag').setup()";

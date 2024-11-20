@@ -75,19 +75,7 @@
       }
 
       decoration {
-        # See https://wiki.hyprland.org/Configuring/Variables/ for more
-
         rounding = 2
-
-        #blur = {
-        #  enabled = false
-        #}
-
-       
-        
-        # blurls = lockscreen
-
-        drop_shadow = false
       }
       
       animations {
