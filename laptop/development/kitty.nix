@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }:{
   programs.kitty = {
     enable = true;
     font = {
@@ -14,6 +14,10 @@
         confirm_os_window_close = 0;
       };
     extraConfig = ''
+
+      # fzf search of scrollback buffers
+      map ctrl+f launch --type=overlay --stdin-source=@screen_scrollback ${pkgs.fzf}/bin/fzf --no-sort --no-mouse --exact -i
+      
       ## name:     Oxocarbon 
       ## author:   Nyoom-engineering (https://github.com/nyoom-engineering)
       ## license:  MIT
